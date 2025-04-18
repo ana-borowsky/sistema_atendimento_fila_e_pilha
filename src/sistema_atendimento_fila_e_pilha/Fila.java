@@ -1,0 +1,52 @@
+package sistema_atendimento_fila_e_pilha;
+
+public class Fila {
+	public No lista;
+	    
+	    public Fila(){
+	        lista = null;
+	    }
+	    
+	    public void insere(Integer elemento){
+	        if(lista != null){
+	        No atual = lista.pegarFimDaNode();
+	        atual.proximo = new No(elemento);
+	        }
+	        else{
+	            lista = new No(elemento);
+	        }
+	    }
+	    
+	    public boolean vazia(){
+	        return lista == null;
+	    }
+	    
+	    public Integer remove(){
+	        return remove("");
+	    }
+	    
+	    public Integer remove(String nome){
+	        if(lista == null){
+	            return 0;
+	        }
+	        
+	        No atual = lista;
+	        lista = atual.proximo; 
+	        System.out.println("Valor removido:" + atual.dado.toString() + " de Fila " + nome + "!");
+	        return atual.dado;
+	    }
+	    
+	    public void imprime(){
+	        if(lista == null){
+	            System.out.println("Fila vazia!");
+	            return;
+	        }
+	        
+	        No atual = lista;
+	        
+	        while(atual != null){
+	            System.out.println(atual.dado.toString());
+	            atual = atual.proximo;
+	        }
+	    }
+}
