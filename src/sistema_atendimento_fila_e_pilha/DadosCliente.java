@@ -5,6 +5,13 @@ public class DadosCliente extends Dado {
 	public String nome;
 	public String motivo;
 	
+	public DadosCliente(int id, String nome, String motivo) {
+		this.id = id;
+		this.nome = nome;
+		this.motivo = motivo;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return String.valueOf(id) + " - " + nome + " - " + motivo;
