@@ -7,7 +7,7 @@ public class Fila {
 	        lista = null;
 	    }
 	    
-	    public void insere(Integer elemento){
+	    public void insere(Dado elemento){
 	        if(lista != null){
 	        No atual = lista.pegarFimDaNode();
 	        atual.proximo = new No(elemento);
@@ -21,13 +21,13 @@ public class Fila {
 	        return lista == null;
 	    }
 	    
-	    public Integer remove(){
+	    public Dado remove(){
 	        return remove("");
 	    }
 	    
-	    public Integer remove(String nome){
+	    public Dado remove(String nome){
 	        if(lista == null){
-	            return 0;
+	            return new Dado();
 	        }
 	        
 	        No atual = lista;

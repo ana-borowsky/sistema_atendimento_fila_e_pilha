@@ -9,7 +9,7 @@ public class Pilha {
         pilha = null;
     }
     
-    public void insere(Integer dado){
+    public void insere(Dado dado){
         if(pilha != null){
         No atual = pilha.pegarFimDaNode();
         atual.proximo = new No(dado);
@@ -19,9 +19,9 @@ public class Pilha {
         }
     }
     
-    public Integer remove(){
+    public Dado remove(){
         if(pilha == null){
-            return 0;
+            return new Dado();
         }
         
         No ultimaNode = null;

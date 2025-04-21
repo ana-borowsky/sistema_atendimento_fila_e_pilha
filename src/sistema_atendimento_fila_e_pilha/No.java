@@ -1,10 +1,10 @@
 package sistema_atendimento_fila_e_pilha;
 
 public class No {
-    public Integer dado;
+    public Dado dado;
     public No proximo;
     
-    public No(Integer dado){
+    public No(Dado dado){
         this.dado = dado;
         proximo = null;
     }
