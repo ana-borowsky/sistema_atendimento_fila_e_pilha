@@ -1,28 +1,23 @@
 package sistema_atendimento_fila_e_pilha;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Navegacao {
     public Fila fila;
     public Pilha pilha;
+    public GeraMenu menu;
     public DadosCliente dadosCliente;
     public DadosSolicitacao dadosSolicitacao;
 
-    public Navegacao(Fila fila, Pilha pilha) {
+    public Navegacao(Fila fila, Pilha pilha, GeraMenu menu) {
         this.fila = fila;
         this.pilha = pilha;
+        this.menu = menu;
 
     }
 
-    String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
-            "Passar para atendimento","Nova solicitação", "Ver solicitação",
-            "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
-            "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", "Nome do cliente: ", "Motivo do atendimento: ",
-            "Data:","Hora:"};
-
     Scanner scanner = new Scanner(System.in);
-    GeraMenu menu = new GeraMenu(opcoes);
+
 
     public void executando(){
         boolean rodaPrograma = true;
@@ -37,12 +32,21 @@ public class Navegacao {
 
                     switch (opcaoAtendimento){
                         case 1:
+                            imprimirFilaAtendimento();
                             menu.menuAtender();
                             scanner.nextLine();
-                            String resposta = scanner.nextLine();
-                            break;
+                            if (fila.lista != null){
+                                System.out.println(menu.opcoes[13]);
+                                String resposta = scanner.nextLine(); // Só coloquei para ter receber a resposta, mas da para tirar 
+                                fila.remove();
+                                break;
+                            } else{
+                                System.out.println("A fila está vazia!!");
+                                break;
+                            }
 
                         case 2:
+                            imprimirSolicitacoes();
                             menu.menuVerSolicitacao();
                             proximaSolicitacao();
                             break;
@@ -68,23 +72,28 @@ public class Navegacao {
                             menu.menuNovaSolicitacao();
                             scanner.nextLine();
 
+                            System.out.println(menu.opcoes[18]);
+                            int id = scanner.nextInt();
+                            scanner.nextLine();
 
-
-                            System.out.println(opcoes[12]);
+                            System.out.println(menu.opcoes[12]);
                             String descricaoSolicitacao = scanner.nextLine();
 
-                            System.out.println(opcoes[16]);
+                            System.out.println(menu.opcoes[16]);
                             String data = scanner.nextLine();
 
-                            System.out.println(opcoes[17]);
+                            System.out.println(menu.opcoes[17]);
                             String hora = scanner.nextLine();
 
+                            this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
+                            pilha.insere(dadosSolicitacao);
                             System.out.println("Solicitação foi criada e adicionada na pilha de solicitções com sucesso.");
 
                             break;
 
                         case 2:
                             menu.menuVerSolicitacao();
+                            pilha.imprime();
                             proximaSolicitacao();
                             break;
 
@@ -116,23 +125,29 @@ public class Navegacao {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
+                imprimirSolicitacoes();
                 menu.menuPassarParaAtendimento();
                 scanner.nextLine();
 
-                System.out.println(opcoes[14]);
+                System.out.println(menu.opcoes[18]);
+                int id = scanner.nextInt();
+
+                scanner.nextLine();
+                System.out.println(menu.opcoes[14]);
                 String nome = scanner.nextLine();
 
-                System.out.println(opcoes[15]);
+                System.out.println(menu.opcoes[15]);
                 String motivo = scanner.nextLine();
 
-                //Chamar a funcao de inserir na o elemnto na fila
+                this.dadosCliente = new DadosCliente(id, nome, motivo);
+                fila.insere(dadosCliente);
+                pilha.remove();
                 System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
-
 
                 break;
             case 2:
-                //Adicionar o metodo para excluir a solicitacao da pilha
-                System.out.println("A solicitação foi excluida com sucesso."); // Print para teste.
+                pilha.remove();
+                System.out.println("A solicitação foi excluída com sucesso.");
                 break;
 
             case 3:
@@ -155,4 +170,13 @@ public class Navegacao {
     }
 
 
+    public void imprimirSolicitacoes(){
+        System.out.println("Solicitações: ");
+        pilha.imprime();
+    }
+
+    public void imprimirFilaAtendimento(){
+        System.out.println("Fila de Atendimentos: ");
+        fila.imprime();
+    }
 }
