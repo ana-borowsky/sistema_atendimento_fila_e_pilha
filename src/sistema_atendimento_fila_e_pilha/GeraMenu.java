@@ -1,12 +1,13 @@
 package sistema_atendimento_fila_e_pilha;
 
 public class GeraMenu {
-    private String[] opcoes;
+    public String[] opcoes;
 
     public GeraMenu(String[] opcoes) {
         this.opcoes = opcoes;
     }
-    
+
+
     public void menuPrincipal() {
         System.out.println("\n|--------MENU--------|");
         System.out.println("[ 1 ] " + opcoes[0]);
@@ -26,13 +27,10 @@ public class GeraMenu {
     public void menuAtender() {
     	this.opcaoSelecionada(2);
     	// implementar imprimir elemento para atender
-        System.out.println(opcoes[13]);
     }
     
     public void menuPassarParaAtendimento() {
     	this.opcaoSelecionada(4);
-    	System.out.println(opcoes[14]);
-    	System.out.println(opcoes[15]);
     	//Ligação com classe da fila/ elementofila
         //System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
     }
@@ -56,7 +54,6 @@ public class GeraMenu {
     
     public void menuNovaSolicitacao() {
     	this.opcaoSelecionada(5);
-        System.out.println(opcoes[12]);
     }
     
     public void opcaoSelecionada(int indice) {
@@ -65,13 +62,15 @@ public class GeraMenu {
     
     public class Main { // manter apenas durante os testes. Remover ao finalizar o projeto
         public static void main(String[] args) {
-            String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação", 
-            		           "Passar para atendimento","Nova solicitação", "Ver solicitação", 
-            		           "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar", 
-            		           "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", "Nome do cliente: ", "Motivo do atendimento: "};
+                String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
+                                    "Passar para atendimento","Nova solicitação", "Ver solicitação",
+                                    "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
+                                    "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", "Nome do cliente: ",
+                                    "Motivo do atendimento: ", "Data:","Hora:", "ID do cliente:"};
 
             GeraMenu menu = new GeraMenu(opcoes);
-            
+            //Navegacao navegacao = new Navegacao(fila, pilha, menu); //Descmarcar quando criar a fila e a pilha
+
             menu.menuPrincipal();
             menu.menuAtendimento();
             menu.menuAtender();
@@ -81,5 +80,6 @@ public class GeraMenu {
             menu.menuNovaSolicitacao();
 
         }
-    }
+
+  }
 }
