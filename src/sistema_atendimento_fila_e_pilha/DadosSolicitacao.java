@@ -1,12 +1,12 @@
 package sistema_atendimento_fila_e_pilha;
 
 public class DadosSolicitacao extends Dado {
-	public int id;
+	public String id;
 	public String descricao;
 	public String data;
 	public String hora;
 	
-	public DadosSolicitacao(int id, String descricao, String data, String hora) {
+	public DadosSolicitacao(String id, String descricao, String data, String hora) {
 		this.id = id;
 		this.descricao = descricao;
 		this.data = data;

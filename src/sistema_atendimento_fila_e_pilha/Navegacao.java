@@ -73,7 +73,7 @@ public class Navegacao {
                             scanner.nextLine();
 
                             System.out.println(menu.opcoes[18]);
-                            int id = scanner.nextInt();
+                            String id = scanner.nextLine();
                             scanner.nextLine();
 
                             System.out.println(menu.opcoes[12]);
@@ -130,7 +130,7 @@ public class Navegacao {
                 scanner.nextLine();
 
                 System.out.println(menu.opcoes[18]);
-                int id = scanner.nextInt();
+                String id = scanner.nextLine();
 
                 scanner.nextLine();
                 System.out.println(menu.opcoes[14]);

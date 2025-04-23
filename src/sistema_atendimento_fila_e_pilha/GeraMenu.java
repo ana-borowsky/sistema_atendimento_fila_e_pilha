@@ -59,27 +59,4 @@ public class GeraMenu {
     public void opcaoSelecionada(int indice) {
         System.out.println("\nOpção " + opcoes[indice].toLowerCase() + " selecionada.");
     }
-    
-    public class Main { // manter apenas durante os testes. Remover ao finalizar o projeto
-        public static void main(String[] args) {
-                String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
-                                    "Passar para atendimento","Nova solicitação", "Ver solicitação",
-                                    "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
-                                    "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", "Nome do cliente: ",
-                                    "Motivo do atendimento: ", "Data:","Hora:", "ID do cliente:"};
-
-            GeraMenu menu = new GeraMenu(opcoes);
-            //Navegacao navegacao = new Navegacao(fila, pilha, menu); //Descmarcar quando criar a fila e a pilha
-
-            menu.menuPrincipal();
-            menu.menuAtendimento();
-            menu.menuAtender();
-            menu.menuPassarParaAtendimento();
-            menu.menuSolicitacoes();
-            menu.menuVerSolicitacao();
-            menu.menuNovaSolicitacao();
-
-        }
-
-  }
 }
