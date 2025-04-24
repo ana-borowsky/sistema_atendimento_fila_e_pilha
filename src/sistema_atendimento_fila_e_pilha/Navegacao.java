@@ -139,6 +139,7 @@ public class Navegacao {
 
                 System.out.println(menu.opcoes[18]);
                 String id = scanner.nextLine();
+                scanner.nextLine();
 
                 scanner.nextLine();
                 System.out.println(menu.opcoes[14]);
@@ -162,6 +163,13 @@ public class Navegacao {
                 //Opção para voltar ao menu principal
                 scanner.nextLine();
                 break;
+              
+            case 4:
+                //Opção para voltar ao menu principal
+                scanner.nextLine();
+                break;
+                
+             
 
             default:
                 System.out.println("Opção inválida.");
