@@ -54,7 +54,8 @@ public class GeraMenu {
         // implementar imprimir a solicitacao
         System.out.println("[ 1 ] " + opcoes[7]);
         System.out.println("[ 2 ] " + opcoes[9]);
-        System.out.println("[ 3 ] " + opcoes[10]);
+        System.out.println("[ 3 ] " + opcoes[19]);
+        System.out.println("[ 4 ] " + opcoes[10]);
         System.out.println(opcoes[8]);
     }
     

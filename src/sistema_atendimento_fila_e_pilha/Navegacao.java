@@ -97,12 +97,18 @@ public class Navegacao {
                             break;
 
                         case 2:
+                        	pilha.imprime();
                             menu.menuVerSolicitacao();
-                            pilha.imprime();
                             proximaSolicitacao();
                             break;
-
+                            
                         case 3:
+                            menu.opcaoSelecionada(19);
+                            pilha.imprime();
+                            break;
+                            
+
+                        case 4:
                             //Opção para voltar ao menu principal
                             scanner.nextLine();
                             break;
