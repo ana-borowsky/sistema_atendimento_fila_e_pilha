@@ -1,11 +1,11 @@
 package sistema_atendimento_fila_e_pilha;
 
 public class DadosCliente extends Dado {
-	public int id;
+	public String id;
 	public String nome;
 	public String motivo;
 	
-	public DadosCliente(int id, String nome, String motivo) {
+	public DadosCliente(String id, String nome, String motivo) {
 		this.id = id;
 		this.nome = nome;
 		this.motivo = motivo;
