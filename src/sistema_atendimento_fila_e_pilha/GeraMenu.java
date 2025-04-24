@@ -20,8 +20,13 @@ public class GeraMenu {
         this.opcaoSelecionada(0);
         System.out.println("[ 1 ] " + opcoes[2]);
         System.out.println("[ 2 ] " + opcoes[3]);
-        System.out.println("[ 3 ] " + opcoes[10]);
+        System.out.println("[ 3 ] " + opcoes[20]);
+        System.out.println("[ 4 ] " + opcoes[10]);
         System.out.println(opcoes[8]);
+    }
+    
+    public void mostrarFilaAtendimento() {
+    	this.opcaoSelecionada(21);
     }
     
     public void menuAtender() {
@@ -39,7 +44,8 @@ public class GeraMenu {
     	this.opcaoSelecionada(1);
         System.out.println("[ 1 ] " + opcoes[5]);
         System.out.println("[ 2 ] " + opcoes[6]);
-        System.out.println("[ 3 ] " + opcoes[10]);
+        System.out.println("[ 3 ] " + opcoes[19]);
+        System.out.println("[ 4 ] " + opcoes[10]);
         System.out.println(opcoes[8]);
     }
     
@@ -57,6 +63,6 @@ public class GeraMenu {
     }
     
     public void opcaoSelecionada(int indice) {
-        System.out.println("\nOpção " + opcoes[indice].toLowerCase() + " selecionada.");
+        System.out.println("\nOpção " + opcoes[indice].toLowerCase() + " selecionada.\n");
     }
 }

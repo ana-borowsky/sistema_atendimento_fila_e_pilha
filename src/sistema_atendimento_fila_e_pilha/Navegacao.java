@@ -52,6 +52,11 @@ public class Navegacao {
                             break;
 
                         case 3:
+                        	menu.mostrarFilaAtendimento();
+                        	fila.imprime();
+                            break;
+
+                        case 4:
                             //Opção para voltar ao menu principal
                             scanner.nextLine();
                             break;
