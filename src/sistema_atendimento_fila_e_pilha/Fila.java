@@ -32,7 +32,7 @@ public class Fila {
 	        
 	        No atual = lista;
 	        lista = atual.proximo; 
-	        System.out.println("Valor removido:" + atual.dado.toString() + " de Fila " + nome + "!");
+	        System.out.println("Atendimento de - " + atual.dado.toString() + " -  realizado com sucesso!");
 	        return atual.dado;
 	    }
 	    
