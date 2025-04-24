@@ -9,8 +9,12 @@ public class Pilha {
         pilha = null;
     }
     
+    public boolean vazia(){
+        return pilha == null;
+    }
+    
     public void insere(Dado dado){
-        if(pilha != null){
+        if(!this.vazia()){
         No atual = pilha.pegarFimDaNode();
         atual.proximo = new No(dado);
         }
@@ -20,7 +24,7 @@ public class Pilha {
     }
     
     public Dado remove(){
-        if(pilha == null){
+        if(this.vazia()){
             return new Dado();
         }
         
@@ -43,7 +47,7 @@ public class Pilha {
     }
     
     public void imprime(){
-        if(pilha == null){
+        if(this.vazia()){
             System.out.println("Não há solicitações no momento.");
         }
         
