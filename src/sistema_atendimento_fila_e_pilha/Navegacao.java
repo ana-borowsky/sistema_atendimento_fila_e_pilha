@@ -35,13 +35,13 @@ public class Navegacao {
                             imprimirFilaAtendimento();
                             menu.menuAtender();
                             scanner.nextLine();
-                            if (fila.lista != null){
-                                System.out.println(menu.opcoes[13]);
-                                String resposta = scanner.nextLine(); // Só coloquei para ter receber a resposta, mas da para tirar 
-                                fila.remove();
+                            if (fila.vazia()){
+                            	System.out.println("A fila está vazia!!");
                                 break;
                             } else{
-                                System.out.println("A fila está vazia!!");
+                            	System.out.println(menu.opcoes[13]);
+                            	String resposta = scanner.nextLine(); // Só coloquei para ter receber a resposta, mas da para tirar 
+                            	fila.remove();
                                 break;
                             }
 

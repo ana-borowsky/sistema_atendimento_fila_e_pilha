@@ -27,16 +27,16 @@ public class Main {
 		 
         
         Dado[] filaAtendimento = {
-			new DadosCliente("CLI001", "Maria Silva", "Dúvida sobre produto"),
-			new DadosCliente("CLI002", "João Souza", "Reclamação de serviço"),
-			new DadosCliente("CLI003", "Ana Costa", "Solicitação de reembolso"),
-			new DadosCliente("CLI004", "Pedro Alves", "Informações de entrega"),
-			new DadosCliente("CLI005", "Carla Dias", "Agendamento de visita"),
-			new DadosCliente("CLI006", "Lucas Martins", "Alteração de pedido"),
-			new DadosCliente("CLI007", "Patrícia Rocha", "Cancelamento de contrato"),
-			new DadosCliente("CLI008", "Rafael Lima", "Renovação de assinatura"),
-			new DadosCliente("CLI009", "Fernanda Gomes", "Suporte para instalação"),
-			new DadosCliente("CLI010", "Carlos Eduardo", "Pedido de orçamento")
+//			new DadosCliente("CLI001", "Maria Silva", "Dúvida sobre produto"),
+//			new DadosCliente("CLI002", "João Souza", "Reclamação de serviço"),
+//			new DadosCliente("CLI003", "Ana Costa", "Solicitação de reembolso"),
+//			new DadosCliente("CLI004", "Pedro Alves", "Informações de entrega"),
+//			new DadosCliente("CLI005", "Carla Dias", "Agendamento de visita"),
+//			new DadosCliente("CLI006", "Lucas Martins", "Alteração de pedido"),
+//			new DadosCliente("CLI007", "Patrícia Rocha", "Cancelamento de contrato"),
+//			new DadosCliente("CLI008", "Rafael Lima", "Renovação de assinatura"),
+//			new DadosCliente("CLI009", "Fernanda Gomes", "Suporte para instalação"),
+//			new DadosCliente("CLI010", "Carlos Eduardo", "Pedido de orçamento")
         };
 
         Fila fila = new Fila();
