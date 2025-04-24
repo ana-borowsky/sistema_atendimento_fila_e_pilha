@@ -58,4 +58,18 @@ public class Pilha {
             atual = atual.proximo;
         }
     }
+    
+    public void imprimeTopo() {
+        if (this.vazia()) {
+            System.out.println("Não há solicitações no momento.");
+            return;
+        }
+
+        No atual = pilha;
+        while (atual.proximo != null) {
+            atual = atual.proximo;
+        }
+
+        System.out.println(atual.dado.toString());
+    }
 }

@@ -13,11 +13,9 @@ public class Navegacao {
         this.fila = fila;
         this.pilha = pilha;
         this.menu = menu;
-
     }
 
     Scanner scanner = new Scanner(System.in);
-
 
     public void executando(){
         boolean rodaPrograma = true;
@@ -43,9 +41,10 @@ public class Navegacao {
 	                         break;
                
                         case 2:
-                            imprimirSolicitacoes();
+                            System.out.println("Solicitações: ");
+                            pilha.imprime();
                             menu.menuVerSolicitacao();
-                            proximaSolicitacao();
+                            verSolicitacao();
                             break;
 
                         case 3:
@@ -63,6 +62,7 @@ public class Navegacao {
                             break;
 
                     }
+                    
                     break;
 
                 case 2:
@@ -89,14 +89,14 @@ public class Navegacao {
 
                             this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
                             pilha.insere(dadosSolicitacao);
-                            System.out.println("Solicitação foi criada e adicionada na pilha de solicitções com sucesso.");
+                            System.out.println("Solicitação foi criada com sucesso.");
 
                             break;
 
                         case 2:
-                        	pilha.imprime();
+                        	pilha.imprimeTopo();
                             menu.menuVerSolicitacao();
-                            proximaSolicitacao();
+                            verSolicitacao();
                             break;
                             
                         case 3:
@@ -104,7 +104,6 @@ public class Navegacao {
                             pilha.imprime();
                             break;
                             
-
                         case 4:
                             //Opção para voltar ao menu principal
                             scanner.nextLine();
@@ -115,6 +114,7 @@ public class Navegacao {
                             break;
 
                     }
+                    
                     break;
 
                 case 3:
@@ -129,11 +129,13 @@ public class Navegacao {
 
         }
     }
-    public void proximaSolicitacao(){
+    
+    public void verSolicitacao(){
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
-                imprimirSolicitacoes();
+                System.out.println("Solicitações: ");
+                pilha.imprime();
                 menu.menuPassarParaAtendimento();
                 scanner.nextLine();
 
@@ -167,9 +169,7 @@ public class Navegacao {
             case 4:
                 //Opção para voltar ao menu principal
                 scanner.nextLine();
-                break;
-                
-             
+                break;         
 
             default:
                 System.out.println("Opção inválida.");
@@ -183,16 +183,5 @@ public class Navegacao {
             scanner.nextLine();
             throw new RuntimeException();
         }
-    }
-
-
-    public void imprimirSolicitacoes(){
-        System.out.println("Solicitações: ");
-        pilha.imprime();
-    }
-
-    public void imprimirFilaAtendimento(){
-        System.out.println("Fila de Atendimentos: ");
-        fila.imprime();
     }
 }
