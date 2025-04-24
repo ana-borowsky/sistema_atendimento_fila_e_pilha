@@ -8,9 +8,9 @@ public class Fila {
 	    }
 	    
 	    public void insere(Dado elemento){
-	        if(lista != null){
-	        No atual = lista.pegarFimDaNode();
-	        atual.proximo = new No(elemento);
+	        if(!this.vazia()){
+		        No atual = lista.pegarFimDaNode();
+		        atual.proximo = new No(elemento);
 	        }
 	        else{
 	            lista = new No(elemento);
@@ -26,7 +26,7 @@ public class Fila {
 	    }
 	    
 	    public Dado remove(String nome){
-	        if(lista == null){
+	        if(this.vazia()){
 	            return new Dado();
 	        }
 	        
@@ -37,7 +37,7 @@ public class Fila {
 	    }
 	    
 	    public void imprime(){
-	        if(lista == null){
+	        if(this.vazia()){
 	            System.out.println("Fila vazia!");
 	            return;
 	        }
