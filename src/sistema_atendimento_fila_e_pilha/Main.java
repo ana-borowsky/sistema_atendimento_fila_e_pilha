@@ -36,7 +36,7 @@ public class Main {
 //			new DadosCliente("CLI007", "Patrícia Rocha", "Cancelamento de contrato"),
 //			new DadosCliente("CLI008", "Rafael Lima", "Renovação de assinatura"),
 //			new DadosCliente("CLI009", "Fernanda Gomes", "Suporte para instalação"),
-//			new DadosCliente("CLI010", "Carlos Eduardo", "Pedido de orçamento")
+			new DadosCliente("CLI010", "Carlos Eduardo", "Pedido de orçamento")
         };
 
         Fila fila = new Fila();

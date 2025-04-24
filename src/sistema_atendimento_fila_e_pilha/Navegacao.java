@@ -32,19 +32,16 @@ public class Navegacao {
 
                     switch (opcaoAtendimento){
                         case 1:
-                            imprimirFilaAtendimento();
                             menu.menuAtender();
                             scanner.nextLine();
-                            if (fila.vazia()){
-                            	System.out.println("A fila está vazia!!");
-                                break;
-                            } else{
-                            	System.out.println(menu.opcoes[13]);
-                            	String resposta = scanner.nextLine(); // Só coloquei para ter receber a resposta, mas da para tirar 
-                            	fila.remove();
-                                break;
-                            }
-
+	                        if (!fila.vazia()) {
+	                            //mostrar o elemento da fila que está sendo atendido
+	                        	System.out.println(menu.opcoes[13]);
+	                        	String resposta = scanner.nextLine(); 
+	                        	fila.remove();
+	                         } 
+	                         break;
+               
                         case 2:
                             imprimirSolicitacoes();
                             menu.menuVerSolicitacao();
