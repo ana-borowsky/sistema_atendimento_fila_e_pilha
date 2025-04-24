@@ -7,22 +7,21 @@ public class GeraMenu {
         this.opcoes = opcoes;
     }
 
-
     public void menuPrincipal() {
         System.out.println("\n|--------MENU--------|");
-        System.out.println("[ 1 ] " + opcoes[0]);
-        System.out.println("[ 2 ] " + opcoes[1]);
-        System.out.println("[ 3 ] " + opcoes[11]);
-        System.out.println(opcoes[8]);
+        System.out.println("[ 1 ] Atendimento");
+        System.out.println("[ 2 ] Solicitações");
+        System.out.println("[ 3 ] Sair");
+        System.out.println("Sua opção: ");
     }
     
     public void menuAtendimento() {
         this.opcaoSelecionada(0);
-        System.out.println("[ 1 ] " + opcoes[2]);
-        System.out.println("[ 2 ] " + opcoes[3]);
-        System.out.println("[ 3 ] " + opcoes[20]);
-        System.out.println("[ 4 ] " + opcoes[10]);
-        System.out.println(opcoes[8]);
+        System.out.println("[ 1 ] Atender");
+        System.out.println("[ 2 ] Ver próxima solicitação");
+        System.out.println("[ 3 ] Ver fila de atendimento");
+        System.out.println("[ 4 ] Voltar");
+        System.out.println("Sua opção: ");
     }
     
     public void mostrarFilaAtendimento() {
@@ -42,20 +41,20 @@ public class GeraMenu {
     
     public void menuSolicitacoes() {
     	this.opcaoSelecionada(1);
-        System.out.println("[ 1 ] " + opcoes[5]);
-        System.out.println("[ 2 ] " + opcoes[6]);
-        System.out.println("[ 3 ] " + opcoes[19]);
-        System.out.println("[ 4 ] " + opcoes[10]);
-        System.out.println(opcoes[8]);
+        System.out.println("[ 1 ] Nova solicitação");
+        System.out.println("[ 2 ] Ver próxima solicitação");
+        System.out.println("[ 3 ] Ver todas as solicitações");
+        System.out.println("[ 4 ] Voltar");
+        System.out.println("Sua opção: ");
     }
     
     public void menuVerSolicitacao() {
         this.opcaoSelecionada(6);
         // implementar imprimir a solicitacao
-        System.out.println("[ 1 ] " + opcoes[7]);
-        System.out.println("[ 2 ] " + opcoes[9]);
-        System.out.println("[ 3 ] " + opcoes[10]);
-        System.out.println(opcoes[8]);
+        System.out.println("[ 1 ] Adicionar à fila de atendimento");
+        System.out.println("[ 2 ] Deletar");
+        System.out.println("[ 3 ] Voltar");
+        System.out.println("Sua opção: ");
     }
     
     public void menuNovaSolicitacao() {

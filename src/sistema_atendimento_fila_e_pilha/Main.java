@@ -10,7 +10,9 @@ public class Main {
                             "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
                             "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", 
                             "Nome do cliente: ", "Motivo do atendimento: ", "Data: ","Hora: ", 
-                            "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", "Fila de atendimento"};
+                            "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", 
+                            "Fila de atendimento"
+        };
 
         Dado[] historico = {
 			new DadosSolicitacao("REQ001", "Instalação de software", "2024-08-20", "10:30"),
@@ -25,7 +27,6 @@ public class Main {
 			new DadosSolicitacao("REQ010", "Consulta técnica", "2024-08-20", "15:00")
         };
 		 
-        
         Dado[] filaAtendimento = {
 			new DadosCliente("CLI001", "Maria Silva", "Dúvida sobre produto"),
 			new DadosCliente("CLI002", "João Souza", "Reclamação de serviço"),
@@ -41,29 +42,24 @@ public class Main {
 
         Fila fila = new Fila();
         Pilha pilha = new Pilha();
+       
         GeraMenu menu = new GeraMenu(opcoes);
         
         // adiciona todas as solicitacoes
     	for ( Dado d: historico) {
         	pilha.insere(d);
         }
+    	
     	// adicona todos os clientes e seus dados
     	for ( Dado d: filaAtendimento) {
     		fila.insere(d);
     	}
     	
-        Navegacao navegacao = new Navegacao(fila, pilha, menu); //Descmarcar quando criar a fila e a pilha
+        Navegacao navegacao = new Navegacao(fila, pilha, menu); 
         
         navegacao.executando();
         	
         	
-}
-	
-
-	
-	
-	
- 
-		
+	}
 
 }

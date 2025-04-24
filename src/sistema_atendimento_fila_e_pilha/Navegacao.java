@@ -154,8 +154,8 @@ public class Navegacao {
                 fila.insere(dadosCliente);
                 pilha.remove();
                 System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
-
                 break;
+                
             case 2:
                 pilha.remove();
                 System.out.println("A solicitação foi excluída com sucesso.");
@@ -176,6 +176,7 @@ public class Navegacao {
                 break;
         }
     }
+    
     public static int lerOpcao(Scanner scanner) {
         try {
             return scanner.nextInt();
