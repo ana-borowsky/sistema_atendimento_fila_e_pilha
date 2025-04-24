@@ -33,7 +33,7 @@ public class Navegacao {
                             menu.menuAtender();
                             scanner.nextLine();
 	                        if (!fila.vazia()) {
-	                            //mostrar o elemento da fila que está sendo atendido
+	                        	fila.imprimePrimeiroElemento();
 	                        	System.out.println(menu.opcoes[13]);
 	                        	String resposta = scanner.nextLine(); 
 	                        	fila.remove();
@@ -42,9 +42,9 @@ public class Navegacao {
                
                         case 2:
                             System.out.println("Solicitações: ");
-                            pilha.imprime();
+                            pilha.imprimeTopo();
                             menu.menuVerSolicitacao();
-                            verSolicitacao();
+                            verProximaSolicitacao();
                             break;
 
                         case 3:
@@ -90,13 +90,12 @@ public class Navegacao {
                             this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
                             pilha.insere(dadosSolicitacao);
                             System.out.println("Solicitação foi criada com sucesso.");
-
                             break;
 
                         case 2:
                         	pilha.imprimeTopo();
                             menu.menuVerSolicitacao();
-                            verSolicitacao();
+                            verProximaSolicitacao();
                             break;
                             
                         case 3:
@@ -119,7 +118,7 @@ public class Navegacao {
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa Encerrado, tenha um excelente dia!!");
+                    System.out.println("Programa encerrado, tenha um excelente dia!!");
                     break;
 
                 default:
@@ -128,9 +127,10 @@ public class Navegacao {
             }
 
         }
+        
     }
     
-    public void verSolicitacao(){
+    public void verProximaSolicitacao(){
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:

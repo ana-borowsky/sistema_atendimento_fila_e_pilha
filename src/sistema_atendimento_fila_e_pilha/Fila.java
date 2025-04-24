@@ -21,6 +21,15 @@ public class Fila {
 	        return lista == null;
 	    }
 	    
+	    public void imprimePrimeiroElemento() {
+	        if (this.vazia()) {
+	            System.out.println("A fila está vazia.");
+	            return;
+	        }
+
+	        System.out.println(lista.dado.toString());
+	    }
+	    
 	    public Dado remove(){
 	        return remove("");
 	    }
