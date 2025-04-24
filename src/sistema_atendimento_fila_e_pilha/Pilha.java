@@ -44,7 +44,7 @@ public class Pilha {
     
     public void imprime(){
         if(pilha == null){
-            System.out.println("Pilha Vazia!");
+            System.out.println("Não há solicitações no momento.");
         }
         
         No atual = pilha;
