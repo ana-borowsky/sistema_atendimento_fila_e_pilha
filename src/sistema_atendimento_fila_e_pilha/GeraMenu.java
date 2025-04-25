@@ -51,6 +51,12 @@ public class GeraMenu {
         System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
+    public void menuProximoDaFila(){
+        System.out.println("[ 1 ] " + OpcoesMenu.ATENDER);
+        System.out.println("[ 2 ] " + OpcoesMenu.VOLTAR);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+    }
+
     public void menuNovaSolicitacao() {
         this.opcaoSelecionada(OpcoesMenu.NOVA_SOLICITACAO);
     }

@@ -45,6 +45,19 @@ public class Navegacao {
         }
     }
 
+    public void atenderCliente(){
+        if (!fila.vazia()) {
+            menu.menuAtender();
+            fila.imprimePrimeiroElemento();
+            System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
+            scanner.nextLine();
+            fila.remove();
+        } else {
+            menu.menuAtender();
+            fila.imprime();
+        }
+    }
+
     public void menuAtendimento(){
         menu.menuAtendimento();
         int opcaoAtendimento = lerOpcao(scanner);
@@ -52,22 +65,14 @@ public class Navegacao {
         switch (opcaoAtendimento){
             case 1:
                 scanner.nextLine();
-                if (!fila.vazia()) {
-                    menu.menuAtender();
-                    fila.imprimePrimeiroElemento();
-                    System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
-                    scanner.nextLine();
-                    fila.remove();
-                } else {
-                    menu.menuAtender();
-                    fila.imprime();
-                }
+                atenderCliente();
                 break;
 
             case 2:
                 menu.mostrarProximoFila();
                 if (!fila.vazia()){
                     fila.imprimePrimeiroElemento();
+                    verProximoFila();
                 } else {
                     fila.imprime();
                 }
@@ -79,7 +84,7 @@ public class Navegacao {
                 break;
 
             case 4:
-                scanner.nextLine(); // voltar
+                 // voltar
                 break;
 
             default:
@@ -87,6 +92,8 @@ public class Navegacao {
                 break;
         }
     }
+
+
 
     public void menuSolicitacao(){
         menu.menuSolicitacoes();
@@ -131,7 +138,7 @@ public class Navegacao {
                 break;
 
             case 4:
-                scanner.nextLine(); // voltar
+                 // voltar
                 break;
 
             default:
@@ -140,6 +147,23 @@ public class Navegacao {
         }
 
 
+    }
+
+
+    public void verProximoFila(){
+        menu.menuProximoDaFila();
+        int opcaoVerProximoFila = lerOpcao(scanner);
+        switch (opcaoVerProximoFila){
+            case 1:
+                scanner.nextLine();
+                atenderCliente();
+                break;
+
+            case 2:
+                menuAtendimento();
+                scanner.nextLine();
+                break;
+        }
     }
 
     public void verProximaSolicitacao(){
