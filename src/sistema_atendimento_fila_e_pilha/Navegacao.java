@@ -15,7 +15,7 @@ public class Navegacao {
         this.menu = menu;
     }
 
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void executando() {
         boolean rodaPrograma = true;
@@ -32,7 +32,6 @@ public class Navegacao {
                     menuSolicitacao();
                     break;
 
-
                 case 3:
                     rodaPrograma = false;
                     System.out.println(MensagensUsuario.ENCERRA_PROGRAMA);
@@ -46,15 +45,12 @@ public class Navegacao {
     }
 
     public void atenderCliente() {
-        if (!fila.vazia()) {
-            menu.menuAtender();
+        menu.menuAtender();
+        if (filaTemCliente()) {
             fila.imprimePrimeiroElemento();
             System.out.println(MensagensUsuario.RESPOSTA_CLIENTE);
             scanner.nextLine();
             fila.remove();
-        } else {
-            menu.menuAtender();
-            fila.imprime();
         }
     }
 
@@ -64,7 +60,6 @@ public class Navegacao {
 
         switch (opcaoAtendimento) {
             case 1:
-                scanner.nextLine();
                 atenderCliente();
                 break;
 
@@ -84,7 +79,6 @@ public class Navegacao {
                 break;
 
             case 4:
-                 // voltar
                 break;
 
             default:
@@ -120,23 +114,20 @@ public class Navegacao {
                 break;
 
             case 2:
-            	menu.mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
-                if (!pilha.vazia()) {
+                menu.mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
+                if (pilhaTemSolicitacao()) {
                     pilha.imprimeTopo();
                     menu.menuVerSolicitacao();
                     verProximaSolicitacao();
-                } else {
-                    pilha.imprime();
                 }
                 break;
 
             case 3:
-            	menu.mostrarCabecalhoSecao(OpcoesMenu.VER_TODAS_SOLICITACOES);
+                menu.mostrarCabecalhoSecao(OpcoesMenu.VER_TODAS_SOLICITACOES);
                 pilha.imprime();
                 break;
 
             case 4:
-                 // voltar
                 break;
 
             default:
@@ -150,13 +141,11 @@ public class Navegacao {
         int opcaoVerProximoFila = lerOpcao(scanner);
         switch (opcaoVerProximoFila) {
             case 1:
-                scanner.nextLine();
-                atenderCliente();
+                atenderCliente(); 
                 break;
 
             case 2:
                 menuAtendimento();
-                scanner.nextLine();
                 break;
 
             default:
@@ -167,11 +156,12 @@ public class Navegacao {
 
     public void verProximaSolicitacao() {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
-        switch (opcaoProximaSolicitacao){
+        switch (opcaoProximaSolicitacao) {
             case 1:
                 menu.menuPassarParaAtendimento();
                 System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
-                scanner.nextLine();
+                
+                scanner.nextLine();                 
 
                 System.out.println(MensagensUsuario.ID_CLIENTE);
                 String id = scanner.nextLine();
@@ -192,8 +182,7 @@ public class Navegacao {
                 break;
 
             case 3:
-                menuSolicitacao();
-                scanner.nextLine(); // voltar
+                menuSolicitacao(); 
                 break;
 
             default:
@@ -202,12 +191,25 @@ public class Navegacao {
         }
     }
 
+    private boolean pilhaTemSolicitacao() {
+        if (!pilha.vazia()) return true;
+        pilha.imprime();
+        return false;
+    }
+
+    private boolean filaTemCliente() {
+        if (!fila.vazia()) return true;
+        fila.imprime();
+        return false;
+    }
+
     public static int lerOpcao(Scanner scanner) {
-        try {
-            return scanner.nextInt();
-        } catch (Exception e) {
-            scanner.nextLine();
-            throw new RuntimeException(MensagensUsuario.OPCAO_INVALIDA);
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
+            }
         }
     }
 }
