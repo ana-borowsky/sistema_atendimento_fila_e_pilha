@@ -167,7 +167,7 @@ public class Navegacao {
 
     public void verProximaSolicitacao() {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
-        switch (opcaoProximaSolicitacao) {
+        switch (opcaoProximaSolicitacao){
             case 1:
                 menu.menuPassarParaAtendimento();
                 System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
