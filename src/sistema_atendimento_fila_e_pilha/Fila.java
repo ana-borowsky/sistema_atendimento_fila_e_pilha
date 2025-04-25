@@ -8,9 +8,9 @@ public class Fila {
 	    }
 	    
 	    public void insere(Dado elemento){
-	        if(lista != null){
-	        No atual = lista.pegarFimDaNode();
-	        atual.proximo = new No(elemento);
+	        if(!this.vazia()){
+		        No atual = lista.pegarFimDaNode();
+		        atual.proximo = new No(elemento);
 	        }
 	        else{
 	            lista = new No(elemento);
@@ -21,23 +21,32 @@ public class Fila {
 	        return lista == null;
 	    }
 	    
+	    public void imprimePrimeiroElemento() {
+	        if (this.vazia()) {
+	            System.out.println("A fila está vazia.\n");
+	            return;
+	        }
+
+	        System.out.println(lista.dado.toString() + "\n");
+	    }
+	    
 	    public Dado remove(){
 	        return remove("");
 	    }
 	    
 	    public Dado remove(String nome){
-	        if(lista == null){
+	        if(this.vazia()){
 	            return new Dado();
 	        }
 	        
 	        No atual = lista;
 	        lista = atual.proximo; 
-	        System.out.println("Valor removido:" + atual.dado.toString() + " de Fila " + nome + "!");
+	        System.out.println("Atendimento realizado com sucesso!");
 	        return atual.dado;
 	    }
 	    
 	    public void imprime(){
-	        if(lista == null){
+	        if(this.vazia()){
 	            System.out.println("Fila vazia!");
 	            return;
 	        }

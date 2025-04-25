@@ -9,18 +9,23 @@ public class Pilha {
         pilha = null;
     }
     
+    public boolean vazia(){
+        return pilha == null;
+    }
+    
     public void insere(Dado dado){
-        if(pilha != null){
+        if(!this.vazia()){
         No atual = pilha.pegarFimDaNode();
         atual.proximo = new No(dado);
         }
         else{
             pilha = new No(dado);
         }
+        System.out.println("Solicitação criada com sucesso.");
     }
     
     public Dado remove(){
-        if(pilha == null){
+        if(this.vazia()){
             return new Dado();
         }
         
@@ -38,13 +43,13 @@ public class Pilha {
         else{
             pilha = null;
         }
-        System.out.println("Valor removido:" + atual.dado.toString() + " de Pilha!");
+        System.out.println("Executado com sucesso.\n");
         return atual.dado;
     }
     
     public void imprime(){
-        if(pilha == null){
-            System.out.println("Pilha Vazia!");
+        if(this.vazia()){
+            System.out.println("Não há solicitações no momento.");
         }
         
         No atual = pilha;
@@ -53,5 +58,19 @@ public class Pilha {
             System.out.println(atual.dado.toString());
             atual = atual.proximo;
         }
+    }
+    
+    public void imprimeTopo() {
+        if (this.vazia()) {
+            System.out.println("Não há solicitações no momento.");
+            return;
+        }
+
+        No atual = pilha;
+        while (atual.proximo != null) {
+            atual = atual.proximo;
+        }
+
+        System.out.println(atual.dado.toString() + "\n");
     }
 }

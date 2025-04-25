@@ -13,11 +13,9 @@ public class Navegacao {
         this.fila = fila;
         this.pilha = pilha;
         this.menu = menu;
-
     }
 
     Scanner scanner = new Scanner(System.in);
-
 
     public void executando(){
         boolean rodaPrograma = true;
@@ -32,35 +30,46 @@ public class Navegacao {
 
                     switch (opcaoAtendimento){
                         case 1:
-                            imprimirFilaAtendimento();
-                            menu.menuAtender();
                             scanner.nextLine();
-                            if (fila.lista != null){
-                                System.out.println(menu.opcoes[13]);
-                                String resposta = scanner.nextLine(); // Só coloquei para ter receber a resposta, mas da para tirar 
-                                fila.remove();
-                                break;
-                            } else{
-                                System.out.println("A fila está vazia!!");
-                                break;
+	                        if (!fila.vazia()) {
+	                            menu.menuAtender();
+	                        	fila.imprimePrimeiroElemento();
+	                        	System.out.println(menu.opcoes[8]);//
+	                        	scanner.nextLine(); 
+	                        	fila.remove();
+	                         } else {
+                                menu.menuAtender();
+                                fila.imprime();
+                            }
+	                         break;
+               
+                        case 2:
+                            if (!fila.vazia()){
+                                menu.mostrarProximoFila();
+                                fila.imprimePrimeiroElemento();
+                            } else {
+                                menu.mostrarProximoFila();
+                                fila.imprime();
                             }
 
-                        case 2:
-                            imprimirSolicitacoes();
-                            menu.menuVerSolicitacao();
-                            proximaSolicitacao();
                             break;
 
                         case 3:
+                        	menu.mostrarFilaAtendimento();
+                        	fila.imprime();
+                            break;
+
+                        case 4:
                             //Opção para voltar ao menu principal
                             scanner.nextLine();
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");
+                            System.out.println("Opção inválida.");////////
                             break;
 
                     }
+                    
                     break;
 
                 case 2:
@@ -70,96 +79,106 @@ public class Navegacao {
                     switch (opcaoSolicitacao){
                         case 1:
                             menu.menuNovaSolicitacao();
+                            System.out.println("Complete os campos abaixo\n");/////////
                             scanner.nextLine();
 
-                            System.out.println(menu.opcoes[18]);
+                            System.out.println(menu.opcoes[14]);//
                             String id = scanner.nextLine();
-                            scanner.nextLine();
 
-                            System.out.println(menu.opcoes[12]);
+                            System.out.println(menu.opcoes[10]);//
                             String descricaoSolicitacao = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[16]);
+                            System.out.println(menu.opcoes[11]);//
                             String data = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[17]);
+                            System.out.println(menu.opcoes[12]);//
                             String hora = scanner.nextLine();
 
                             this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
                             pilha.insere(dadosSolicitacao);
-                            System.out.println("Solicitação foi criada e adicionada na pilha de solicitções com sucesso.");
-
                             break;
 
                         case 2:
-                            menu.menuVerSolicitacao();
-                            pilha.imprime();
-                            proximaSolicitacao();
+                            menu.opcaoSelecionada(16);//
+                            if(!pilha.vazia()){
+                                pilha.imprimeTopo();
+                                menu.menuVerSolicitacao();
+                                verProximaSolicitacao();
+                            } else {
+                                pilha.imprime();
+                            }
                             break;
-
+                            
                         case 3:
+                            menu.opcaoSelecionada(7);//
+                            pilha.imprime();
+                            break;
+                            
+                        case 4:
                             //Opção para voltar ao menu principal
                             scanner.nextLine();
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");
+                            System.out.println("Opção inválida.");////////
                             break;
 
                     }
+                    
                     break;
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa Encerrado, tenha um excelente dia!!");
+                    System.out.println("Programa encerrado, tenha um excelente dia!");///////
                     break;
 
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("Opção inválida.");///////
                     break;
             }
 
-        }
+        };
+        
     }
-    public void proximaSolicitacao(){
+    
+    public void verProximaSolicitacao(){
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
-                imprimirSolicitacoes();
                 menu.menuPassarParaAtendimento();
+                System.out.println("Complete os campos abaixo\n");///////
                 scanner.nextLine();
 
-                System.out.println(menu.opcoes[18]);
+                System.out.println(menu.opcoes[9]);//
                 String id = scanner.nextLine();
 
-                scanner.nextLine();
-                System.out.println(menu.opcoes[14]);
+
+                System.out.println(menu.opcoes[13]);//
                 String nome = scanner.nextLine();
 
-                System.out.println(menu.opcoes[15]);
+                System.out.println(menu.opcoes[14]);//
                 String motivo = scanner.nextLine();
 
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
                 fila.insere(dadosCliente);
                 pilha.remove();
-                System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
-
                 break;
+                
             case 2:
                 pilha.remove();
-                System.out.println("A solicitação foi excluída com sucesso.");
                 break;
 
             case 3:
                 //Opção para voltar ao menu principal
                 scanner.nextLine();
-                break;
+                break;   
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println("Opção inválida.");////////
                 break;
         }
     }
+    
     public static int lerOpcao(Scanner scanner) {
         try {
             return scanner.nextInt();
@@ -167,16 +186,5 @@ public class Navegacao {
             scanner.nextLine();
             throw new RuntimeException();
         }
-    }
-
-
-    public void imprimirSolicitacoes(){
-        System.out.println("Solicitações: ");
-        pilha.imprime();
-    }
-
-    public void imprimirFilaAtendimento(){
-        System.out.println("Fila de Atendimentos: ");
-        fila.imprime();
     }
 }

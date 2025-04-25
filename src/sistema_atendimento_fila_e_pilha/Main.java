@@ -4,13 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-	    
-        String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
-                            "Passar para atendimento","Nova solicitação", "Ver solicitação",
-                            "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
-                            "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", "Nome do cliente: ",
-                            "Motivo do atendimento: ", "Data:","Hora:", "ID do cliente:"};
-
+	 
         Dado[] historico = {
 			new DadosSolicitacao("REQ001", "Instalação de software", "2024-08-20", "10:30"),
 			new DadosSolicitacao("REQ002", "Manutenção preventiva", "2024-08-20", "11:00"),
@@ -21,10 +15,9 @@ public class Main {
 			new DadosSolicitacao("REQ007", "Reparo de impressora", "2024-08-20", "13:30"),
 			new DadosSolicitacao("REQ008", "Configuração de rede", "2024-08-20", "14:00"),
 			new DadosSolicitacao("REQ009", "Restauração de dados", "2024-08-20", "14:30"),
-			new DadosSolicitacao("REQ010", "Consulta técnica", "2024-08-20", "15:00"),
+			new DadosSolicitacao("REQ010", "Consulta técnica", "2024-08-20", "15:00")
         };
 		 
-        
         Dado[] filaAtendimento = {
 			new DadosCliente("CLI001", "Maria Silva", "Dúvida sobre produto"),
 			new DadosCliente("CLI002", "João Souza", "Reclamação de serviço"),
@@ -40,29 +33,24 @@ public class Main {
 
         Fila fila = new Fila();
         Pilha pilha = new Pilha();
-        GeraMenu menu = new GeraMenu(opcoes);
+       
+        GeraMenu menu = new GeraMenu();
         
         // adiciona todas as solicitacoes
     	for ( Dado d: historico) {
         	pilha.insere(d);
         }
+    	
     	// adicona todos os clientes e seus dados
     	for ( Dado d: filaAtendimento) {
     		fila.insere(d);
     	}
     	
-        Navegacao navegacao = new Navegacao(fila, pilha, menu); //Descmarcar quando criar a fila e a pilha
+        Navegacao navegacao = new Navegacao(fila, pilha, menu); 
         
         navegacao.executando();
         	
         	
-}
-	
-
-	
-	
-	
- 
-		
+	}
 
 }
