@@ -76,7 +76,7 @@ public class Navegacao {
 
                             System.out.println(menu.opcoes[18]);
                             String id = scanner.nextLine();
-                            scanner.nextLine();
+
 
                             System.out.println(menu.opcoes[12]);
                             String descricaoSolicitacao = scanner.nextLine();
@@ -141,9 +141,8 @@ public class Navegacao {
 
                 System.out.println(menu.opcoes[18]);
                 String id = scanner.nextLine();
-                scanner.nextLine();
 
-                scanner.nextLine();
+
                 System.out.println(menu.opcoes[14]);
                 String nome = scanner.nextLine();
 
