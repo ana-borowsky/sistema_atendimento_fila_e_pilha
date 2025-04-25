@@ -2,15 +2,15 @@ package sistema_atendimento_fila_e_pilha;
 
 public class GeraMenu {
 	
-    public String[] opcoes = {
-            "Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
-            "Passar para atendimento", "Nova solicitação", "Ver solicitação",
-            "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
-            "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", 
-            "Nome do cliente: ", "Motivo do atendimento: ", "Data: ", "Hora: ", 
-            "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", 
-            "Ver próximo da fila"
-        };
+	public String[] opcoes = {
+            "Atendimento", "Solicitações", "Atender", 
+            "Ver fila de atendimento", "Ver próximo da fila", "Passar para atendimento", 
+            "Nova solicitação", "Ver todas as solicitações", "Resposta ao cliente: ", 
+            "ID do cliente: ", "Insira a descrição da solicitação: ", "Data: ", 
+            "Hora: ", "Nome do cliente: ", "Motivo do atendimento: ", 
+            "Deletar", "Ver próxima solicitação"
+			};
+
 
     public void menuPrincipal() {
         System.out.println("\n|--------MENU--------|");
@@ -21,7 +21,7 @@ public class GeraMenu {
     }
     
     public void menuAtendimento() {
-        this.opcaoSelecionada(0);
+        this.opcaoSelecionada(0);//
         System.out.println("[ 1 ] Atender");
         System.out.println("[ 2 ] Ver próximo da fila");
         System.out.println("[ 3 ] Ver fila de atendimento");
@@ -30,24 +30,21 @@ public class GeraMenu {
     }
     
     public void mostrarFilaAtendimento() {
-    	this.opcaoSelecionada(20);
+    	this.opcaoSelecionada(3);//
     }
 
-    public void mostrarProximoFila() { this.opcaoSelecionada(21);}
+    public void mostrarProximoFila() { this.opcaoSelecionada(4);}//
     
     public void menuAtender() {
-    	this.opcaoSelecionada(2);
-    	// implementar imprimir elemento para atender
+    	this.opcaoSelecionada(2);//
     }
     
     public void menuPassarParaAtendimento() {
-    	this.opcaoSelecionada(4);
-    	//Ligação com classe da fila/ elementofila
-        //System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
+    	this.opcaoSelecionada(5);//
     }
     
     public void menuSolicitacoes() {
-    	this.opcaoSelecionada(1);
+    	this.opcaoSelecionada(1);//
         System.out.println("[ 1 ] Nova solicitação");
         System.out.println("[ 2 ] Ver próxima solicitação");
         System.out.println("[ 3 ] Ver todas as solicitações");
@@ -56,7 +53,6 @@ public class GeraMenu {
     }
     
     public void menuVerSolicitacao() {
-        // implementar imprimir a solicitacao
         System.out.println("[ 1 ] Adicionar à fila de atendimento");
         System.out.println("[ 2 ] Deletar");
         System.out.println("[ 3 ] Voltar");
@@ -64,7 +60,7 @@ public class GeraMenu {
     }
     
     public void menuNovaSolicitacao() {
-    	this.opcaoSelecionada(5);
+    	this.opcaoSelecionada(6);
     }
     
     public void opcaoSelecionada(int indice) {

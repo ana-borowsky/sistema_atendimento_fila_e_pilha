@@ -71,6 +71,6 @@ public class Pilha {
             atual = atual.proximo;
         }
 
-        System.out.println(atual.dado.toString());
+        System.out.println(atual.dado.toString() + "\n");
     }
 }

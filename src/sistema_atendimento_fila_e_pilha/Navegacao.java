@@ -34,7 +34,7 @@ public class Navegacao {
 	                        if (!fila.vazia()) {
 	                            menu.menuAtender();
 	                        	fila.imprimePrimeiroElemento();
-	                        	System.out.println(menu.opcoes[13]);
+	                        	System.out.println(menu.opcoes[8]);//
 	                        	scanner.nextLine(); 
 	                        	fila.remove();
 	                         } else {
@@ -65,7 +65,7 @@ public class Navegacao {
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");
+                            System.out.println("Opção inválida.");////////
                             break;
 
                     }
@@ -79,19 +79,19 @@ public class Navegacao {
                     switch (opcaoSolicitacao){
                         case 1:
                             menu.menuNovaSolicitacao();
-                            System.out.println("Complete os campos abaixo\n");
+                            System.out.println("Complete os campos abaixo\n");/////////
                             scanner.nextLine();
 
-                            System.out.println(menu.opcoes[18]);
+                            System.out.println(menu.opcoes[14]);//
                             String id = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[12]);
+                            System.out.println(menu.opcoes[10]);//
                             String descricaoSolicitacao = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[16]);
+                            System.out.println(menu.opcoes[11]);//
                             String data = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[17]);
+                            System.out.println(menu.opcoes[12]);//
                             String hora = scanner.nextLine();
 
                             this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
@@ -99,10 +99,9 @@ public class Navegacao {
                             break;
 
                         case 2:
-                            menu.opcaoSelecionada(3);
+                            menu.opcaoSelecionada(16);//
                             if(!pilha.vazia()){
                                 pilha.imprimeTopo();
-                                System.out.println(" 2");
                                 menu.menuVerSolicitacao();
                                 verProximaSolicitacao();
                             } else {
@@ -111,7 +110,7 @@ public class Navegacao {
                             break;
                             
                         case 3:
-                            menu.opcaoSelecionada(19);
+                            menu.opcaoSelecionada(7);//
                             pilha.imprime();
                             break;
                             
@@ -121,7 +120,7 @@ public class Navegacao {
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");
+                            System.out.println("Opção inválida.");////////
                             break;
 
                     }
@@ -130,11 +129,11 @@ public class Navegacao {
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa encerrado, tenha um excelente dia!");
+                    System.out.println("Programa encerrado, tenha um excelente dia!");///////
                     break;
 
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("Opção inválida.");///////
                     break;
             }
 
@@ -147,17 +146,17 @@ public class Navegacao {
         switch (opcaoProximaSolicitacao){
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println("Complete os campos abaixo\n");
+                System.out.println("Complete os campos abaixo\n");///////
                 scanner.nextLine();
 
-                System.out.println(menu.opcoes[18]);
+                System.out.println(menu.opcoes[9]);//
                 String id = scanner.nextLine();
 
 
-                System.out.println(menu.opcoes[14]);
+                System.out.println(menu.opcoes[13]);//
                 String nome = scanner.nextLine();
 
-                System.out.println(menu.opcoes[15]);
+                System.out.println(menu.opcoes[14]);//
                 String motivo = scanner.nextLine();
 
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
@@ -175,7 +174,7 @@ public class Navegacao {
                 break;   
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println("Opção inválida.");////////
                 break;
         }
     }
