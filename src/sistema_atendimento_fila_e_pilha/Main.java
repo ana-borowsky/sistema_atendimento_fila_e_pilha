@@ -4,16 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-	    
-        String[] opcoes = {"Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
-                            "Passar para atendimento","Nova solicitação", "Ver solicitação",
-                            "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
-                            "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", 
-                            "Nome do cliente: ", "Motivo do atendimento: ", "Data: ","Hora: ", 
-                            "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", 
-                            "Ver próximo da fila"
-        };
-
+	 
         Dado[] historico = {
 			new DadosSolicitacao("REQ001", "Instalação de software", "2024-08-20", "10:30"),
 			new DadosSolicitacao("REQ002", "Manutenção preventiva", "2024-08-20", "11:00"),
@@ -43,7 +34,7 @@ public class Main {
         Fila fila = new Fila();
         Pilha pilha = new Pilha();
        
-        GeraMenu menu = new GeraMenu(opcoes);
+        GeraMenu menu = new GeraMenu();
         
         // adiciona todas as solicitacoes
     	for ( Dado d: historico) {

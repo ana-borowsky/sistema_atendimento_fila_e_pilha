@@ -30,12 +30,12 @@ public class Navegacao {
 
                     switch (opcaoAtendimento){
                         case 1:
-                            menu.menuAtender();
                             scanner.nextLine();
 	                        if (!fila.vazia()) {
+	                            menu.menuAtender();
 	                        	fila.imprimePrimeiroElemento();
 	                        	System.out.println(menu.opcoes[13]);
-	                        	String resposta = scanner.nextLine(); 
+	                        	scanner.nextLine(); 
 	                        	fila.remove();
 	                         } else {
                                 menu.menuAtender();
@@ -79,7 +79,7 @@ public class Navegacao {
                     switch (opcaoSolicitacao){
                         case 1:
                             menu.menuNovaSolicitacao();
-                            System.out.println("Complete os campos abaixo: " + "\n");
+                            System.out.println("Complete os campos abaixo\n");
                             scanner.nextLine();
 
                             System.out.println(menu.opcoes[18]);
@@ -96,7 +96,6 @@ public class Navegacao {
 
                             this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
                             pilha.insere(dadosSolicitacao);
-                            System.out.println("Solicitação foi criada com sucesso.");
                             break;
 
                         case 2:
@@ -139,7 +138,7 @@ public class Navegacao {
                     break;
             }
 
-        }
+        };
         
     }
     

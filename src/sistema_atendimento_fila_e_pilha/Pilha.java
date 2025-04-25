@@ -21,6 +21,7 @@ public class Pilha {
         else{
             pilha = new No(dado);
         }
+        System.out.println("Solicitação criada com sucesso.");
     }
     
     public Dado remove(){

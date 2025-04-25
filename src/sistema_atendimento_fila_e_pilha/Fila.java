@@ -23,11 +23,11 @@ public class Fila {
 	    
 	    public void imprimePrimeiroElemento() {
 	        if (this.vazia()) {
-	            System.out.println("A fila está vazia.");
+	            System.out.println("A fila está vazia.\n");
 	            return;
 	        }
 
-	        System.out.println(lista.dado.toString());
+	        System.out.println(lista.dado.toString() + "\n");
 	    }
 	    
 	    public Dado remove(){
@@ -41,7 +41,7 @@ public class Fila {
 	        
 	        No atual = lista;
 	        lista = atual.proximo; 
-	        System.out.println("Atendimento de - " + atual.dado.toString() + " -  realizado com sucesso!");
+	        System.out.println("Atendimento realizado com sucesso!");
 	        return atual.dado;
 	    }
 	    

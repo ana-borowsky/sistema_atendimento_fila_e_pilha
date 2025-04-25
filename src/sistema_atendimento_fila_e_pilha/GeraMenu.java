@@ -1,11 +1,16 @@
 package sistema_atendimento_fila_e_pilha;
 
 public class GeraMenu {
-    public String[] opcoes;
-
-    public GeraMenu(String[] opcoes) {
-        this.opcoes = opcoes;
-    }
+	
+    public String[] opcoes = {
+            "Atendimento", "Solicitações", "Atender", "Ver próxima solicitação",
+            "Passar para atendimento", "Nova solicitação", "Ver solicitação",
+            "Adicionar à fila de atendimento", "Sua opção: ", "Deletar", "Voltar",
+            "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", 
+            "Nome do cliente: ", "Motivo do atendimento: ", "Data: ", "Hora: ", 
+            "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", 
+            "Ver próximo da fila"
+        };
 
     public void menuPrincipal() {
         System.out.println("\n|--------MENU--------|");
