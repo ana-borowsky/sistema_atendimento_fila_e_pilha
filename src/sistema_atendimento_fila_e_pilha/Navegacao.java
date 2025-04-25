@@ -93,9 +93,14 @@ public class Navegacao {
                             break;
 
                         case 2:
-                        	pilha.imprimeTopo();
-                            menu.menuVerSolicitacao();
-                            verProximaSolicitacao();
+                            menu.opcaoSelecionada(3);
+                            if(!pilha.vazia()){
+                                pilha.imprimeTopo();
+                                menu.menuVerSolicitacao();
+                                verProximaSolicitacao();
+                            } else {
+                                pilha.imprime();
+                            }
                             break;
                             
                         case 3:
