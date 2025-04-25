@@ -37,7 +37,9 @@ public class Navegacao {
 	                        	System.out.println(menu.opcoes[13]);
 	                        	String resposta = scanner.nextLine(); 
 	                        	fila.remove();
-	                         } 
+	                         } else {
+                                fila.imprime();
+                            }
 	                         break;
                
                         case 2:
