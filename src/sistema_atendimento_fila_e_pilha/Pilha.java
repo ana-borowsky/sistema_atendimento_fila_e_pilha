@@ -42,7 +42,7 @@ public class Pilha {
         else{
             pilha = null;
         }
-        System.out.println("Valor removido:" + atual.dado.toString() + " de Pilha!");
+        System.out.println("Executado com sucesso.\n");
         return atual.dado;
     }
     

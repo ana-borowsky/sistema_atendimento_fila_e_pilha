@@ -131,7 +131,7 @@ public class Navegacao {
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa encerrado, tenha um excelente dia!!");
+                    System.out.println("Programa encerrado, tenha um excelente dia!");
                     break;
 
                 default:
@@ -148,7 +148,7 @@ public class Navegacao {
         switch (opcaoProximaSolicitacao){
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println("Complete os campos abaixo: " + "\n");
+                System.out.println("Complete os campos abaixo\n");
                 scanner.nextLine();
 
                 System.out.println(menu.opcoes[18]);
@@ -164,23 +164,16 @@ public class Navegacao {
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
                 fila.insere(dadosCliente);
                 pilha.remove();
-                System.out.println("Solicitação passada para fila de atendimento com sucesso.");
                 break;
                 
             case 2:
                 pilha.remove();
-                System.out.println("A solicitação foi excluída com sucesso.");
                 break;
 
             case 3:
                 //Opção para voltar ao menu principal
                 scanner.nextLine();
-                break;
-              
-            case 4:
-                //Opção para voltar ao menu principal
-                scanner.nextLine();
-                break;         
+                break;   
 
             default:
                 System.out.println("Opção inválida.");
