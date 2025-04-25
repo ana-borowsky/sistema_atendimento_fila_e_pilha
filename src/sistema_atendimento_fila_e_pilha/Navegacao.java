@@ -15,15 +15,15 @@ public class Navegacao {
         this.menu = menu;
     }
 
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
-    public void executando(){
+    public void executando() {
         boolean rodaPrograma = true;
         while (rodaPrograma) {
             menu.menuPrincipal();
             int opcaoSelecionada = lerOpcao(scanner);
 
-            switch (opcaoSelecionada){
+            switch (opcaoSelecionada) {
                 case 1:
                     menuAtendimento();
                     break;
@@ -32,45 +32,40 @@ public class Navegacao {
                     menuSolicitacao();
                     break;
 
-
                 case 3:
                     rodaPrograma = false;
-                    System.out.println(OpcoesMenu.ENCERRA_PROGRAMA);
+                    System.out.println(MensagensUsuario.ENCERRA_PROGRAMA);
                     break;
 
                 default:
-                    System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                    System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                     break;
             }
         }
     }
 
-    public void atenderCliente(){
-        if (!fila.vazia()) {
-            menu.menuAtender();
+    public void atenderCliente() {
+        menu.menuAtender();
+        if (filaTemCliente()) {
             fila.imprimePrimeiroElemento();
-            System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
+            System.out.println(MensagensUsuario.RESPOSTA_CLIENTE);
             scanner.nextLine();
             fila.remove();
-        } else {
-            menu.menuAtender();
-            fila.imprime();
         }
     }
 
-    public void menuAtendimento(){
+    public void menuAtendimento() {
         menu.menuAtendimento();
         int opcaoAtendimento = lerOpcao(scanner);
 
-        switch (opcaoAtendimento){
+        switch (opcaoAtendimento) {
             case 1:
-                scanner.nextLine();
                 atenderCliente();
                 break;
 
             case 2:
                 menu.mostrarProximoFila();
-                if (!fila.vazia()){
+                if (!fila.vazia()) {
                     fila.imprimePrimeiroElemento();
                     verProximoFila();
                 } else {
@@ -84,37 +79,34 @@ public class Navegacao {
                 break;
 
             case 4:
-                 // voltar
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
 
-
-
-    public void menuSolicitacao(){
+    public void menuSolicitacao() {
         menu.menuSolicitacoes();
         int opcaoSolicitacao = lerOpcao(scanner);
 
-        switch (opcaoSolicitacao){
+        switch (opcaoSolicitacao) {
             case 1:
                 menu.menuNovaSolicitacao();
-                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
+                System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
                 scanner.nextLine();
 
-                System.out.println(OpcoesMenu.ID_CLIENTE);
+                System.out.println(MensagensUsuario.ID_CLIENTE);
                 String id = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.DESCRICAO);
+                System.out.println(MensagensUsuario.DESCRICAO);
                 String descricaoSolicitacao = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.DATA);
+                System.out.println(MensagensUsuario.DATA);
                 String data = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.HORA);
+                System.out.println(MensagensUsuario.HORA);
                 String hora = scanner.nextLine();
 
                 this.dadosSolicitacao = new DadosSolicitacao(id, descricaoSolicitacao, data, hora);
@@ -122,69 +114,62 @@ public class Navegacao {
                 break;
 
             case 2:
-                menu.opcaoSelecionada(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
-                if (!pilha.vazia()) {
+                menu.mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
+                if (pilhaTemSolicitacao()) {
                     pilha.imprimeTopo();
                     menu.menuVerSolicitacao();
                     verProximaSolicitacao();
-                } else {
-                    pilha.imprime();
                 }
                 break;
 
             case 3:
-                menu.opcaoSelecionada(OpcoesMenu.VER_TODAS_SOLICITACOES);
+                menu.mostrarCabecalhoSecao(OpcoesMenu.VER_TODAS_SOLICITACOES);
                 pilha.imprime();
                 break;
 
             case 4:
-                 // voltar
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
-
-
     }
 
-
-    public void verProximoFila(){
+    public void verProximoFila() {
         menu.menuProximoDaFila();
         int opcaoVerProximoFila = lerOpcao(scanner);
-        switch (opcaoVerProximoFila){
+        switch (opcaoVerProximoFila) {
             case 1:
-                scanner.nextLine();
-                atenderCliente();
+                atenderCliente(); 
                 break;
 
             case 2:
                 menuAtendimento();
-                scanner.nextLine();
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
 
-    public void verProximaSolicitacao(){
+    public void verProximaSolicitacao() {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
-        switch (opcaoProximaSolicitacao){
+        switch (opcaoProximaSolicitacao) {
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
-                scanner.nextLine();
+                System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
+                
+                scanner.nextLine();                 
 
-                System.out.println(OpcoesMenu.ID_CLIENTE);
+                System.out.println(MensagensUsuario.ID_CLIENTE);
                 String id = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.NOME_CLIENTE);
+                System.out.println(MensagensUsuario.NOME_CLIENTE);
                 String nome = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.MOTIVO);
+                System.out.println(MensagensUsuario.MOTIVO);
                 String motivo = scanner.nextLine();
 
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
@@ -197,22 +182,34 @@ public class Navegacao {
                 break;
 
             case 3:
-                menuSolicitacao();
-                scanner.nextLine(); // voltar
+                menuSolicitacao(); 
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
 
+    private boolean pilhaTemSolicitacao() {
+        if (!pilha.vazia()) return true;
+        pilha.imprime();
+        return false;
+    }
+
+    private boolean filaTemCliente() {
+        if (!fila.vazia()) return true;
+        fila.imprime();
+        return false;
+    }
+
     public static int lerOpcao(Scanner scanner) {
-        try {
-            return scanner.nextInt();
-        } catch (Exception e) {
-            scanner.nextLine();
-            throw new RuntimeException(OpcoesMenu.OPCAO_INVALIDA);
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
+            }
         }
     }
 }
