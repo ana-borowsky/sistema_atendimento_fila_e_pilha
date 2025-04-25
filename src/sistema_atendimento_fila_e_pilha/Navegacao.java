@@ -100,10 +100,10 @@ public class Navegacao {
                             break;
 
                         case 2:
-                            menu.opcaoSelecionada(6);
+                            menu.opcaoSelecionada(3);
                             if(!pilha.vazia()){
                                 pilha.imprimeTopo();
-                                System.out.println("");
+                                System.out.println(" 2");
                                 menu.menuVerSolicitacao();
                                 verProximaSolicitacao();
                             } else {
@@ -141,10 +141,6 @@ public class Navegacao {
 
         }
         
-    }
-
-    public void atenderCliente(){
-
     }
     
     public void verProximaSolicitacao(){
