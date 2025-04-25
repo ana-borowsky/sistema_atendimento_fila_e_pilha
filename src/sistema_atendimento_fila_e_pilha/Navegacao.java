@@ -152,7 +152,7 @@ public class Navegacao {
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
                 fila.insere(dadosCliente);
                 pilha.remove();
-                System.out.println("Solicitação foi passada para a fila de atendimento com sucesso.");
+                System.out.println("Solicitação passada para fila de atendimento com sucesso.");
                 break;
                 
             case 2:
