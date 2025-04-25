@@ -11,7 +11,7 @@ public class Main {
                             "Sair", "Insira a descrição da solicitação: ", "Resposta ao cliente: ", 
                             "Nome do cliente: ", "Motivo do atendimento: ", "Data: ","Hora: ", 
                             "ID do cliente: ", "Ver todas as solicitações", "Ver fila de atendimento", 
-                            "Fila de atendimento"
+                            "Ver próximo da fila"
         };
 
         Dado[] historico = {

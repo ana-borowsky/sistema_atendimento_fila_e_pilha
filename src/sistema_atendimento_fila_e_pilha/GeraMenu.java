@@ -18,15 +18,17 @@ public class GeraMenu {
     public void menuAtendimento() {
         this.opcaoSelecionada(0);
         System.out.println("[ 1 ] Atender");
-        System.out.println("[ 2 ] Ver próxima solicitação");
+        System.out.println("[ 2 ] Ver próximo da fila");
         System.out.println("[ 3 ] Ver fila de atendimento");
         System.out.println("[ 4 ] Voltar");
         System.out.println("Sua opção: ");
     }
     
     public void mostrarFilaAtendimento() {
-    	this.opcaoSelecionada(21);
+    	this.opcaoSelecionada(20);
     }
+
+    public void mostrarProximoFila() { this.opcaoSelecionada(21);}
     
     public void menuAtender() {
     	this.opcaoSelecionada(2);
@@ -49,7 +51,6 @@ public class GeraMenu {
     }
     
     public void menuVerSolicitacao() {
-        this.opcaoSelecionada(6);
         // implementar imprimir a solicitacao
         System.out.println("[ 1 ] Adicionar à fila de atendimento");
         System.out.println("[ 2 ] Deletar");

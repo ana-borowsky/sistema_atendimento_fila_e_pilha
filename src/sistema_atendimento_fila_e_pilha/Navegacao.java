@@ -38,15 +38,20 @@ public class Navegacao {
 	                        	String resposta = scanner.nextLine(); 
 	                        	fila.remove();
 	                         } else {
+                                menu.menuAtender();
                                 fila.imprime();
                             }
 	                         break;
                
                         case 2:
-                            System.out.println("Solicitações: ");
-                            pilha.imprimeTopo();
-                            menu.menuVerSolicitacao();
-                            verProximaSolicitacao();
+                            if (!fila.vazia()){
+                                menu.mostrarProximoFila();
+                                fila.imprimePrimeiroElemento();
+                            } else {
+                                menu.mostrarProximoFila();
+                                fila.imprime();
+                            }
+
                             break;
 
                         case 3:
@@ -95,9 +100,10 @@ public class Navegacao {
                             break;
 
                         case 2:
-                            menu.opcaoSelecionada(3);
+                            menu.opcaoSelecionada(6);
                             if(!pilha.vazia()){
                                 pilha.imprimeTopo();
+                                System.out.println("");
                                 menu.menuVerSolicitacao();
                                 verProximaSolicitacao();
                             } else {
@@ -136,13 +142,15 @@ public class Navegacao {
         }
         
     }
+
+    public void atenderCliente(){
+
+    }
     
     public void verProximaSolicitacao(){
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
-
-
                 menu.menuPassarParaAtendimento();
                 System.out.println("Complete os campos abaixo: " + "\n");
                 scanner.nextLine();
