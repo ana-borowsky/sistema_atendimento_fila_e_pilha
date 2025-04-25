@@ -25,46 +25,7 @@ public class Navegacao {
 
             switch (opcaoSelecionada){
                 case 1:
-                    menu.menuAtendimento();
-                    int opcaoAtendimento = lerOpcao(scanner);
-
-                    switch (opcaoAtendimento){
-                        case 1:
-                            scanner.nextLine();
-                            if (!fila.vazia()) {
-                                menu.menuAtender();
-                                fila.imprimePrimeiroElemento();
-                                System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
-                                scanner.nextLine(); 
-                                fila.remove();
-                            } else {
-                                menu.menuAtender();
-                                fila.imprime();
-                            }
-                            break;
-
-                        case 2:
-                            menu.mostrarProximoFila();
-                            if (!fila.vazia()){
-                                fila.imprimePrimeiroElemento();
-                            } else {
-                                fila.imprime();
-                            }
-                            break;
-
-                        case 3:
-                            menu.mostrarFilaAtendimento();
-                            fila.imprime();
-                            break;
-
-                        case 4:
-                            scanner.nextLine(); // voltar
-                            break;
-
-                        default:
-                            System.out.println("Opção inválida.");
-                            break;
-                    }
+                    menuAtendimento();
                     break;
 
                 case 2:
@@ -83,7 +44,49 @@ public class Navegacao {
             }
         }
     }
-    
+
+    public void menuAtendimento(){
+        menu.menuAtendimento();
+        int opcaoAtendimento = lerOpcao(scanner);
+
+        switch (opcaoAtendimento){
+            case 1:
+                scanner.nextLine();
+                if (!fila.vazia()) {
+                    menu.menuAtender();
+                    fila.imprimePrimeiroElemento();
+                    System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
+                    scanner.nextLine();
+                    fila.remove();
+                } else {
+                    menu.menuAtender();
+                    fila.imprime();
+                }
+                break;
+
+            case 2:
+                menu.mostrarProximoFila();
+                if (!fila.vazia()){
+                    fila.imprimePrimeiroElemento();
+                } else {
+                    fila.imprime();
+                }
+                break;
+
+            case 3:
+                menu.mostrarFilaAtendimento();
+                fila.imprime();
+                break;
+
+            case 4:
+                scanner.nextLine(); // voltar
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+                break;
+        }
+    }
 
     public void menuSolicitacao(){
         menu.menuSolicitacoes();
