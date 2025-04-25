@@ -4,51 +4,53 @@ public class GeraMenu {
 
     public void menuPrincipal() {
         System.out.println(OpcoesMenu.CABECALHO_MENU);
-        System.out.println("[ 1 ] " + OpcoesMenu.ATENDIMENTO);
-        System.out.println("[ 2 ] " + OpcoesMenu.SOLICITACOES);
-        System.out.println("[ 3 ] " + OpcoesMenu.SAIR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+        String[] opcoes = {OpcoesMenu.ATENDIMENTO, OpcoesMenu.SOLICITACOES, OpcoesMenu.SAIR};
+        exibirMenu(null, opcoes);
     }
 
     public void menuAtendimento() {
-        this.opcaoSelecionada(OpcoesMenu.ATENDIMENTO);
-        System.out.println("[ 1 ] " + OpcoesMenu.ATENDER);
-        System.out.println("[ 2 ] " + OpcoesMenu.VER_PROXIMO_FILA);
-        System.out.println("[ 3 ] " + OpcoesMenu.VER_FILA);
-        System.out.println("[ 4 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+        String[] opcoes = {
+            OpcoesMenu.ATENDER,
+            OpcoesMenu.VER_PROXIMO_FILA,
+            OpcoesMenu.VER_FILA,
+            OpcoesMenu.VOLTAR
+        };
+        exibirMenu(OpcoesMenu.ATENDIMENTO, opcoes);
     }
 
     public void mostrarFilaAtendimento() {
-        this.opcaoSelecionada(OpcoesMenu.VER_FILA);
+        mostrarCabecalhoSecao(OpcoesMenu.VER_FILA);
     }
 
     public void mostrarProximoFila() {
-        this.opcaoSelecionada(OpcoesMenu.VER_PROXIMO_FILA);
+        mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMO_FILA);
     }
 
     public void menuAtender() {
-        this.opcaoSelecionada(OpcoesMenu.ATENDER);
+        mostrarCabecalhoSecao(OpcoesMenu.ATENDER);
     }
-
+    
     public void menuPassarParaAtendimento() {
-        this.opcaoSelecionada(OpcoesMenu.PASSAR_PARA_ATENDIMENTO);
+        mostrarCabecalhoSecao(OpcoesMenu.PASSAR_PARA_ATENDIMENTO);
     }
 
     public void menuSolicitacoes() {
-        this.opcaoSelecionada(OpcoesMenu.SOLICITACOES);
-        System.out.println("[ 1 ] " + OpcoesMenu.NOVA_SOLICITACAO);
-        System.out.println("[ 2 ] " + OpcoesMenu.VER_PROXIMA_SOLICITACAO);
-        System.out.println("[ 3 ] " + OpcoesMenu.VER_TODAS_SOLICITACOES);
-        System.out.println("[ 4 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+        String[] opcoes = {
+            OpcoesMenu.NOVA_SOLICITACAO,
+            OpcoesMenu.VER_PROXIMA_SOLICITACAO,
+            OpcoesMenu.VER_TODAS_SOLICITACOES,
+            OpcoesMenu.VOLTAR
+        };
+        exibirMenu(OpcoesMenu.SOLICITACOES, opcoes);
     }
 
     public void menuVerSolicitacao() {
-        System.out.println("[ 1 ] " + OpcoesMenu.ADICIONAR_A_FILA);
-        System.out.println("[ 2 ] " + OpcoesMenu.DELETAR);
-        System.out.println("[ 3 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+        String[] opcoes = {
+            OpcoesMenu.ADICIONAR_A_FILA,
+            OpcoesMenu.DELETAR,
+            OpcoesMenu.VOLTAR
+        };
+        exibirMenu(null, opcoes);
     }
 
     public void menuProximoDaFila(){
@@ -58,10 +60,24 @@ public class GeraMenu {
     }
 
     public void menuNovaSolicitacao() {
-        this.opcaoSelecionada(OpcoesMenu.NOVA_SOLICITACAO);
+        mostrarCabecalhoSecao(OpcoesMenu.NOVA_SOLICITACAO);
     }
 
-    public void opcaoSelecionada(String texto) {
-        System.out.println("\nOpção " + texto.toLowerCase() + " selecionada.\n");
+//    public void opcaoSelecionada(String texto) {
+//        System.out.println("\nOpção " + texto.toLowerCase() + " selecionada.\n");
+//    }
+    
+    private void exibirMenu(String titulo, String[] opcoes) {
+        if (titulo != null) {
+            mostrarCabecalhoSecao(titulo);
+        }
+        for (int i = 0; i < opcoes.length; i++) {
+            System.out.printf("[ %d ] %s%n", i + 1, opcoes[i]);
+        }
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+    }
+
+    void mostrarCabecalhoSecao(String texto) {
+        System.out.println("\n>> " + texto + " <<\n");
     }
 }

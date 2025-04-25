@@ -122,7 +122,7 @@ public class Navegacao {
                 break;
 
             case 2:
-                menu.opcaoSelecionada(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
+            	menu.mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
                 if (!pilha.vazia()) {
                     pilha.imprimeTopo();
                     menu.menuVerSolicitacao();
@@ -133,7 +133,7 @@ public class Navegacao {
                 break;
 
             case 3:
-                menu.opcaoSelecionada(OpcoesMenu.VER_TODAS_SOLICITACOES);
+            	menu.mostrarCabecalhoSecao(OpcoesMenu.VER_TODAS_SOLICITACOES);
                 pilha.imprime();
                 break;
 
