@@ -68,56 +68,9 @@ public class Navegacao {
                     break;
 
                 case 2:
-                    menu.menuSolicitacoes();
-                    int opcaoSolicitacao = lerOpcao(scanner);
-
-                    switch (opcaoSolicitacao){
-                        case 1:
-                            menu.menuNovaSolicitacao();
-                            System.out.println("Complete os campos abaixo\n");
-                            scanner.nextLine();
-
-                            System.out.println(OpcoesMenu.ID_CLIENTE);
-                            String id = scanner.nextLine();
-
-                            System.out.println(OpcoesMenu.DESCRICAO);
-                            String descricaoSolicitacao = scanner.nextLine();
-
-                            System.out.println(OpcoesMenu.DATA);
-                            String data = scanner.nextLine();
-
-                            System.out.println(OpcoesMenu.HORA);
-                            String hora = scanner.nextLine();
-
-                            this.dadosSolicitacao = new DadosSolicitacao(id, descricaoSolicitacao, data, hora);
-                            pilha.insere(dadosSolicitacao);
-                            break;
-
-                        case 2:
-                            menu.opcaoSelecionada(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
-                            if (!pilha.vazia()) {
-                                pilha.imprimeTopo();
-                                menu.menuVerSolicitacao();
-                                verProximaSolicitacao();
-                            } else {
-                                pilha.imprime();
-                            }
-                            break;
-
-                        case 3:
-                            menu.opcaoSelecionada(OpcoesMenu.VER_TODAS_SOLICITACOES);
-                            pilha.imprime();
-                            break;
-
-                        case 4:
-                            scanner.nextLine(); // voltar
-                            break;
-
-                        default:
-                            System.out.println("Opção inválida.");
-                            break;
-                    }
+                    menuSolicitacao();
                     break;
+
 
                 case 3:
                     rodaPrograma = false;
@@ -129,6 +82,61 @@ public class Navegacao {
                     break;
             }
         }
+    }
+    
+
+    public void menuSolicitacao(){
+        menu.menuSolicitacoes();
+        int opcaoSolicitacao = lerOpcao(scanner);
+
+        switch (opcaoSolicitacao){
+            case 1:
+                menu.menuNovaSolicitacao();
+                System.out.println("Complete os campos abaixo\n");
+                scanner.nextLine();
+
+                System.out.println(OpcoesMenu.ID_CLIENTE);
+                String id = scanner.nextLine();
+
+                System.out.println(OpcoesMenu.DESCRICAO);
+                String descricaoSolicitacao = scanner.nextLine();
+
+                System.out.println(OpcoesMenu.DATA);
+                String data = scanner.nextLine();
+
+                System.out.println(OpcoesMenu.HORA);
+                String hora = scanner.nextLine();
+
+                this.dadosSolicitacao = new DadosSolicitacao(id, descricaoSolicitacao, data, hora);
+                pilha.insere(dadosSolicitacao);
+                break;
+
+            case 2:
+                menu.opcaoSelecionada(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
+                if (!pilha.vazia()) {
+                    pilha.imprimeTopo();
+                    menu.menuVerSolicitacao();
+                    verProximaSolicitacao();
+                } else {
+                    pilha.imprime();
+                }
+                break;
+
+            case 3:
+                menu.opcaoSelecionada(OpcoesMenu.VER_TODAS_SOLICITACOES);
+                pilha.imprime();
+                break;
+
+            case 4:
+                scanner.nextLine(); // voltar
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+                break;
+        }
+
+
     }
 
     public void verProximaSolicitacao(){
@@ -158,6 +166,7 @@ public class Navegacao {
                 break;
 
             case 3:
+                menuSolicitacao();
                 scanner.nextLine(); // voltar
                 break;
 

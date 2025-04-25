@@ -7,7 +7,7 @@ public class GeraMenu {
         System.out.println("[ 1 ] " + OpcoesMenu.ATENDIMENTO);
         System.out.println("[ 2 ] " + OpcoesMenu.SOLICITACOES);
         System.out.println("[ 3 ] " + OpcoesMenu.SAIR);
-        System.out.println(OpcoesMenu.SUA_OPCAO);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
     public void menuAtendimento() {
@@ -16,7 +16,7 @@ public class GeraMenu {
         System.out.println("[ 2 ] " + OpcoesMenu.VER_PROXIMO_FILA);
         System.out.println("[ 3 ] " + OpcoesMenu.VER_FILA);
         System.out.println("[ 4 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.SUA_OPCAO);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
     public void mostrarFilaAtendimento() {
@@ -41,14 +41,14 @@ public class GeraMenu {
         System.out.println("[ 2 ] " + OpcoesMenu.VER_PROXIMA_SOLICITACAO);
         System.out.println("[ 3 ] " + OpcoesMenu.VER_TODAS_SOLICITACOES);
         System.out.println("[ 4 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.SUA_OPCAO);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
     public void menuVerSolicitacao() {
         System.out.println("[ 1 ] " + OpcoesMenu.ADICIONAR_A_FILA);
         System.out.println("[ 2 ] " + OpcoesMenu.DELETAR);
         System.out.println("[ 3 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.SUA_OPCAO);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
     public void menuNovaSolicitacao() {
