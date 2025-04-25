@@ -74,11 +74,11 @@ public class Navegacao {
                     switch (opcaoSolicitacao){
                         case 1:
                             menu.menuNovaSolicitacao();
+                            System.out.println("Complete os campos abaixo: " + "\n");
                             scanner.nextLine();
 
                             System.out.println(menu.opcoes[18]);
                             String id = scanner.nextLine();
-
 
                             System.out.println(menu.opcoes[12]);
                             String descricaoSolicitacao = scanner.nextLine();
@@ -141,9 +141,10 @@ public class Navegacao {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
-                System.out.println("Solicitações: ");
-                pilha.imprime();
+
+
                 menu.menuPassarParaAtendimento();
+                System.out.println("Complete os campos abaixo: " + "\n");
                 scanner.nextLine();
 
                 System.out.println(menu.opcoes[18]);
