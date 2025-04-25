@@ -35,11 +35,11 @@ public class Navegacao {
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa encerrado, tenha um excelente dia!");
+                    System.out.println(OpcoesMenu.ENCERRA_PROGRAMA);
                     break;
 
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println(OpcoesMenu.OPCAO_INVALIDA);
                     break;
             }
         }
@@ -88,7 +88,7 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
                 break;
         }
     }
@@ -102,7 +102,7 @@ public class Navegacao {
         switch (opcaoSolicitacao){
             case 1:
                 menu.menuNovaSolicitacao();
-                System.out.println("Complete os campos abaixo\n");
+                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
                 scanner.nextLine();
 
                 System.out.println(OpcoesMenu.ID_CLIENTE);
@@ -142,7 +142,7 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
                 break;
         }
 
@@ -163,6 +163,10 @@ public class Navegacao {
                 menuAtendimento();
                 scanner.nextLine();
                 break;
+
+            default:
+                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                break;
         }
     }
 
@@ -171,7 +175,7 @@ public class Navegacao {
         switch (opcaoProximaSolicitacao){
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println("Complete os campos abaixo\n");
+                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
                 scanner.nextLine();
 
                 System.out.println(OpcoesMenu.ID_CLIENTE);
@@ -198,7 +202,7 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
                 break;
         }
     }
@@ -208,7 +212,7 @@ public class Navegacao {
             return scanner.nextInt();
         } catch (Exception e) {
             scanner.nextLine();
-            throw new RuntimeException("Entrada inválida.");
+            throw new RuntimeException(OpcoesMenu.OPCAO_INVALIDA);
         }
     }
 }
