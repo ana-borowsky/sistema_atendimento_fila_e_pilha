@@ -17,13 +17,13 @@ public class Navegacao {
 
     Scanner scanner = new Scanner(System.in);
 
-    public void executando(){
+    public void executando() {
         boolean rodaPrograma = true;
         while (rodaPrograma) {
             menu.menuPrincipal();
             int opcaoSelecionada = lerOpcao(scanner);
 
-            switch (opcaoSelecionada){
+            switch (opcaoSelecionada) {
                 case 1:
                     menuAtendimento();
                     break;
@@ -35,21 +35,21 @@ public class Navegacao {
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println(OpcoesMenu.ENCERRA_PROGRAMA);
+                    System.out.println(MensagensUsuario.ENCERRA_PROGRAMA);
                     break;
 
                 default:
-                    System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                    System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                     break;
             }
         }
     }
 
-    public void atenderCliente(){
+    public void atenderCliente() {
         if (!fila.vazia()) {
             menu.menuAtender();
             fila.imprimePrimeiroElemento();
-            System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
+            System.out.println(MensagensUsuario.RESPOSTA_CLIENTE);
             scanner.nextLine();
             fila.remove();
         } else {
@@ -58,11 +58,11 @@ public class Navegacao {
         }
     }
 
-    public void menuAtendimento(){
+    public void menuAtendimento() {
         menu.menuAtendimento();
         int opcaoAtendimento = lerOpcao(scanner);
 
-        switch (opcaoAtendimento){
+        switch (opcaoAtendimento) {
             case 1:
                 scanner.nextLine();
                 atenderCliente();
@@ -70,7 +70,7 @@ public class Navegacao {
 
             case 2:
                 menu.mostrarProximoFila();
-                if (!fila.vazia()){
+                if (!fila.vazia()) {
                     fila.imprimePrimeiroElemento();
                     verProximoFila();
                 } else {
@@ -88,33 +88,31 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
 
-
-
-    public void menuSolicitacao(){
+    public void menuSolicitacao() {
         menu.menuSolicitacoes();
         int opcaoSolicitacao = lerOpcao(scanner);
 
-        switch (opcaoSolicitacao){
+        switch (opcaoSolicitacao) {
             case 1:
                 menu.menuNovaSolicitacao();
-                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
+                System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
                 scanner.nextLine();
 
-                System.out.println(OpcoesMenu.ID_CLIENTE);
+                System.out.println(MensagensUsuario.ID_CLIENTE);
                 String id = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.DESCRICAO);
+                System.out.println(MensagensUsuario.DESCRICAO);
                 String descricaoSolicitacao = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.DATA);
+                System.out.println(MensagensUsuario.DATA);
                 String data = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.HORA);
+                System.out.println(MensagensUsuario.HORA);
                 String hora = scanner.nextLine();
 
                 this.dadosSolicitacao = new DadosSolicitacao(id, descricaoSolicitacao, data, hora);
@@ -142,18 +140,15 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
-
-
     }
 
-
-    public void verProximoFila(){
+    public void verProximoFila() {
         menu.menuProximoDaFila();
         int opcaoVerProximoFila = lerOpcao(scanner);
-        switch (opcaoVerProximoFila){
+        switch (opcaoVerProximoFila) {
             case 1:
                 scanner.nextLine();
                 atenderCliente();
@@ -165,26 +160,26 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
 
-    public void verProximaSolicitacao(){
+    public void verProximaSolicitacao() {
         int opcaoProximaSolicitacao = lerOpcao(scanner);
-        switch (opcaoProximaSolicitacao){
+        switch (opcaoProximaSolicitacao) {
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println(OpcoesMenu.PREENCHA_CAMPOS);
+                System.out.println(MensagensUsuario.PREENCHA_CAMPOS);
                 scanner.nextLine();
 
-                System.out.println(OpcoesMenu.ID_CLIENTE);
+                System.out.println(MensagensUsuario.ID_CLIENTE);
                 String id = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.NOME_CLIENTE);
+                System.out.println(MensagensUsuario.NOME_CLIENTE);
                 String nome = scanner.nextLine();
 
-                System.out.println(OpcoesMenu.MOTIVO);
+                System.out.println(MensagensUsuario.MOTIVO);
                 String motivo = scanner.nextLine();
 
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
@@ -202,7 +197,7 @@ public class Navegacao {
                 break;
 
             default:
-                System.out.println(OpcoesMenu.OPCAO_INVALIDA);
+                System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
     }
@@ -212,7 +207,7 @@ public class Navegacao {
             return scanner.nextInt();
         } catch (Exception e) {
             scanner.nextLine();
-            throw new RuntimeException(OpcoesMenu.OPCAO_INVALIDA);
+            throw new RuntimeException(MensagensUsuario.OPCAO_INVALIDA);
         }
     }
 }

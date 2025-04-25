@@ -8,6 +8,10 @@ public class GeraMenu {
         exibirMenu(null, opcoes);
     }
 
+    void mostrarCabecalhoSecao(String texto) {
+        System.out.println("\n>> " + texto + " <<\n");
+    }
+    
     public void menuAtendimento() {
         String[] opcoes = {
             OpcoesMenu.ATENDER,
@@ -34,6 +38,12 @@ public class GeraMenu {
         mostrarCabecalhoSecao(OpcoesMenu.PASSAR_PARA_ATENDIMENTO);
     }
 
+    public void menuProximoDaFila(){
+        System.out.println("[ 1 ] " + OpcoesMenu.ATENDER);
+        System.out.println("[ 2 ] " + OpcoesMenu.VOLTAR);
+        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+    }
+
     public void menuSolicitacoes() {
         String[] opcoes = {
             OpcoesMenu.NOVA_SOLICITACAO,
@@ -53,19 +63,9 @@ public class GeraMenu {
         exibirMenu(null, opcoes);
     }
 
-    public void menuProximoDaFila(){
-        System.out.println("[ 1 ] " + OpcoesMenu.ATENDER);
-        System.out.println("[ 2 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
-    }
-
     public void menuNovaSolicitacao() {
         mostrarCabecalhoSecao(OpcoesMenu.NOVA_SOLICITACAO);
     }
-
-//    public void opcaoSelecionada(String texto) {
-//        System.out.println("\nOpção " + texto.toLowerCase() + " selecionada.\n");
-//    }
     
     private void exibirMenu(String titulo, String[] opcoes) {
         if (titulo != null) {
@@ -77,7 +77,4 @@ public class GeraMenu {
         System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
     }
 
-    void mostrarCabecalhoSecao(String texto) {
-        System.out.println("\n>> " + texto + " <<\n");
-    }
 }
