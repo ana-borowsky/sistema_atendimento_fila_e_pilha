@@ -24,52 +24,47 @@ public class Navegacao {
             int opcaoSelecionada = lerOpcao(scanner);
 
             switch (opcaoSelecionada){
-                case 1 :
+                case 1:
                     menu.menuAtendimento();
                     int opcaoAtendimento = lerOpcao(scanner);
 
                     switch (opcaoAtendimento){
                         case 1:
                             scanner.nextLine();
-	                        if (!fila.vazia()) {
-	                            menu.menuAtender();
-	                        	fila.imprimePrimeiroElemento();
-	                        	System.out.println(menu.opcoes[8]);//
-	                        	scanner.nextLine(); 
-	                        	fila.remove();
-	                         } else {
+                            if (!fila.vazia()) {
+                                menu.menuAtender();
+                                fila.imprimePrimeiroElemento();
+                                System.out.println(OpcoesMenu.RESPOSTA_CLIENTE);
+                                scanner.nextLine(); 
+                                fila.remove();
+                            } else {
                                 menu.menuAtender();
                                 fila.imprime();
                             }
-	                         break;
-               
+                            break;
+
                         case 2:
+                            menu.mostrarProximoFila();
                             if (!fila.vazia()){
-                                menu.mostrarProximoFila();
                                 fila.imprimePrimeiroElemento();
                             } else {
-                                menu.mostrarProximoFila();
                                 fila.imprime();
                             }
-
                             break;
 
                         case 3:
-                        	menu.mostrarFilaAtendimento();
-                        	fila.imprime();
+                            menu.mostrarFilaAtendimento();
+                            fila.imprime();
                             break;
 
                         case 4:
-                            //Opção para voltar ao menu principal
-                            scanner.nextLine();
+                            scanner.nextLine(); // voltar
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");////////
+                            System.out.println("Opção inválida.");
                             break;
-
                     }
-                    
                     break;
 
                 case 2:
@@ -79,28 +74,28 @@ public class Navegacao {
                     switch (opcaoSolicitacao){
                         case 1:
                             menu.menuNovaSolicitacao();
-                            System.out.println("Complete os campos abaixo\n");/////////
+                            System.out.println("Complete os campos abaixo\n");
                             scanner.nextLine();
 
-                            System.out.println(menu.opcoes[14]);//
+                            System.out.println(OpcoesMenu.ID_CLIENTE);
                             String id = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[10]);//
+                            System.out.println(OpcoesMenu.DESCRICAO);
                             String descricaoSolicitacao = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[11]);//
+                            System.out.println(OpcoesMenu.DATA);
                             String data = scanner.nextLine();
 
-                            System.out.println(menu.opcoes[12]);//
+                            System.out.println(OpcoesMenu.HORA);
                             String hora = scanner.nextLine();
 
-                            this.dadosSolicitacao = new DadosSolicitacao(id,descricaoSolicitacao,data, hora);
+                            this.dadosSolicitacao = new DadosSolicitacao(id, descricaoSolicitacao, data, hora);
                             pilha.insere(dadosSolicitacao);
                             break;
 
                         case 2:
-                            menu.opcaoSelecionada(16);//
-                            if(!pilha.vazia()){
+                            menu.opcaoSelecionada(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
+                            if (!pilha.vazia()) {
                                 pilha.imprimeTopo();
                                 menu.menuVerSolicitacao();
                                 verProximaSolicitacao();
@@ -108,83 +103,76 @@ public class Navegacao {
                                 pilha.imprime();
                             }
                             break;
-                            
+
                         case 3:
-                            menu.opcaoSelecionada(7);//
+                            menu.opcaoSelecionada(OpcoesMenu.VER_TODAS_SOLICITACOES);
                             pilha.imprime();
                             break;
-                            
+
                         case 4:
-                            //Opção para voltar ao menu principal
-                            scanner.nextLine();
+                            scanner.nextLine(); // voltar
                             break;
 
                         default:
-                            System.out.println("Opção inválida.");////////
+                            System.out.println("Opção inválida.");
                             break;
-
                     }
-                    
                     break;
 
                 case 3:
                     rodaPrograma = false;
-                    System.out.println("Programa encerrado, tenha um excelente dia!");///////
+                    System.out.println("Programa encerrado, tenha um excelente dia!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida.");///////
+                    System.out.println("Opção inválida.");
                     break;
             }
-
-        };
-        
+        }
     }
-    
+
     public void verProximaSolicitacao(){
         int opcaoProximaSolicitacao = lerOpcao(scanner);
         switch (opcaoProximaSolicitacao){
             case 1:
                 menu.menuPassarParaAtendimento();
-                System.out.println("Complete os campos abaixo\n");///////
+                System.out.println("Complete os campos abaixo\n");
                 scanner.nextLine();
 
-                System.out.println(menu.opcoes[9]);//
+                System.out.println(OpcoesMenu.ID_CLIENTE);
                 String id = scanner.nextLine();
 
-
-                System.out.println(menu.opcoes[13]);//
+                System.out.println(OpcoesMenu.NOME_CLIENTE);
                 String nome = scanner.nextLine();
 
-                System.out.println(menu.opcoes[14]);//
+                System.out.println(OpcoesMenu.MOTIVO);
                 String motivo = scanner.nextLine();
 
                 this.dadosCliente = new DadosCliente(id, nome, motivo);
                 fila.insere(dadosCliente);
                 pilha.remove();
                 break;
-                
+
             case 2:
                 pilha.remove();
                 break;
 
             case 3:
-                //Opção para voltar ao menu principal
-                scanner.nextLine();
-                break;   
+                scanner.nextLine(); // voltar
+                break;
 
             default:
-                System.out.println("Opção inválida.");////////
+                System.out.println("Opção inválida.");
                 break;
         }
     }
-    
+
     public static int lerOpcao(Scanner scanner) {
         try {
             return scanner.nextInt();
         } catch (Exception e) {
             scanner.nextLine();
-            throw new RuntimeException();
+            throw new RuntimeException("Entrada inválida.");
         }
     }
 }
