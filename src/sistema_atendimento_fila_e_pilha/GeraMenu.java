@@ -38,10 +38,12 @@ public class GeraMenu {
         mostrarCabecalhoSecao(OpcoesMenu.PASSAR_PARA_ATENDIMENTO);
     }
 
-    public void menuProximoDaFila(){
-        System.out.println("[ 1 ] " + OpcoesMenu.ATENDER);
-        System.out.println("[ 2 ] " + OpcoesMenu.VOLTAR);
-        System.out.println(OpcoesMenu.INPUT_USUARIO_MENU);
+    public void menuProximoDaFila() {
+        String[] opcoes = {
+            OpcoesMenu.ATENDER,
+            OpcoesMenu.VOLTAR
+        };
+        exibirMenu(null, opcoes);
     }
 
     public void menuSolicitacoes() {

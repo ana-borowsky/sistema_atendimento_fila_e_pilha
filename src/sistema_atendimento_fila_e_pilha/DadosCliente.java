@@ -11,7 +11,6 @@ public class DadosCliente extends Dado {
 		this.motivo = motivo;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return String.valueOf(id) + " - " + nome + " - " + motivo;

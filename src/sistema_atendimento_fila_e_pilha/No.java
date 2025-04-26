@@ -4,26 +4,26 @@ public class No {
     public Dado dado;
     public No proximo;
     
-    public No(Dado dado){
+    public No(Dado dado) {
         this.dado = dado;
         proximo = null;
     }
     
-    public No pegarFimDaNode(){
+    public No pegarFimDaNode() {
     	No atual = this;
         
-        while(atual.proximo != null){
+        while(atual.proximo != null) {
             atual = atual.proximo;
         }
         
         return atual;
     }
     
-    public int pegarTamanhoRestanteEstrutura(){
+    public int pegarTamanhoRestanteEstrutura() {
         int contador = 0;
         No atual = this;
         
-        while(atual.proximo != null){
+        while(atual.proximo != null) {
             atual = atual.proximo;
             contador++;
         }
