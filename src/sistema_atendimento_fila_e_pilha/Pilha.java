@@ -4,57 +4,57 @@ public class Pilha {
 	public Integer dado;
     public No pilha;
     
-    public Pilha(){
+    public Pilha() {
         dado = null;
         pilha = null;
     }
     
-    public boolean vazia(){
+    public boolean vazia() {
         return pilha == null;
     }
     
-    public void insere(Dado dado){
-        if(!this.vazia()){
+    public void insere(Dado dado) {
+        if (!this.vazia()) {
         No atual = pilha.pegarFimDaNode();
         atual.proximo = new No(dado);
         }
-        else{
+        else {
             pilha = new No(dado);
         }
-        System.out.println("Solicitação criada com sucesso.");
+        System.out.println(MensagensUsuario.SOLICITACAO_CRIADA);
     }
     
-    public Dado remove(){
-        if(this.vazia()){
+    public Dado remove() {
+        if (this.vazia()) {
             return new Dado();
         }
         
         No ultimaNode = null;
         No atual = pilha;
         
-        while(atual.proximo != null){
+        while (atual.proximo != null) {
             ultimaNode = atual;
             atual = atual.proximo;
         }
         
-        if(ultimaNode != null){
+        if (ultimaNode != null) {
             ultimaNode.proximo = null;
         }
-        else{
+        else {
             pilha = null;
         }
-        System.out.println("Executado com sucesso.\n");
+        System.out.println(MensagensUsuario.SUCESSO);
         return atual.dado;
     }
     
-    public void imprime(){
-        if(this.vazia()){
-            System.out.println("Não há solicitações no momento.");
+    public void imprime() {
+        if (this.vazia()) {
+        	System.out.println(MensagensUsuario.PILHA_VAZIA);
         }
         
         No atual = pilha;
         
-        while(atual != null){
+        while (atual != null) {
             System.out.println(atual.dado.toString());
             atual = atual.proximo;
         }
@@ -62,7 +62,8 @@ public class Pilha {
     
     public void imprimeTopo() {
         if (this.vazia()) {
-            System.out.println("Não há solicitações no momento.");
+        	System.out.println(MensagensUsuario.PILHA_VAZIA);
+            
             return;
         }
 

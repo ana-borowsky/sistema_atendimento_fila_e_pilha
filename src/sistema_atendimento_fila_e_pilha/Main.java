@@ -1,7 +1,5 @@
 package sistema_atendimento_fila_e_pilha;
 
-import java.util.Scanner;
-
 public class Main {
 	public static void main(String[] args) {
 	 
