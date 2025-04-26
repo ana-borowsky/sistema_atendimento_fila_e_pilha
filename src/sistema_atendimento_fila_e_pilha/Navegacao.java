@@ -46,7 +46,7 @@ public class Navegacao {
 
     public void atenderCliente() {
         menu.menuAtender();
-        if (filaTemCliente()) {
+        if (fila.filaTemCliente()) {
             fila.imprimePrimeiroElemento();
             System.out.println(MensagensUsuario.RESPOSTA_CLIENTE);
             scanner.nextLine();
@@ -115,7 +115,7 @@ public class Navegacao {
 
             case 2:
                 menu.mostrarCabecalhoSecao(OpcoesMenu.VER_PROXIMA_SOLICITACAO);
-                if (pilhaTemSolicitacao()) {
+                if (pilha.pilhaTemSolicitacao()) {
                     pilha.imprimeTopo();
                     menu.menuVerSolicitacao();
                     verProximaSolicitacao();
@@ -189,18 +189,6 @@ public class Navegacao {
                 System.out.println(MensagensUsuario.OPCAO_INVALIDA);
                 break;
         }
-    }
-
-    private boolean pilhaTemSolicitacao() {
-        if (!pilha.vazia()) return true;
-        pilha.imprime();
-        return false;
-    }
-
-    private boolean filaTemCliente() {
-        if (!fila.vazia()) return true;
-        fila.imprime();
-        return false;
     }
 
     public static int lerOpcao(Scanner scanner) {

@@ -14,8 +14,6 @@ public class MensagensUsuario {
     public static final String RESPOSTA_CLIENTE = "Resposta ao cliente: ";
     
     public static final String OPCAO_INVALIDA = "Opção inválida.";
-        
-    public static final String ENCERRA_PROGRAMA = "Programa encerrado, tenha um excelente dia!";
     
     public static final String SOLICITACAO_CRIADA = "Solicitação criada com sucesso.";
     public static final String SUCESSO = "Executado com sucesso.\n";
@@ -24,6 +22,5 @@ public class MensagensUsuario {
     public static final String FILA_VAZIA = "A fila está vazia.\n";
     public static final String ATENDIMENTO_REALIZADO = "Atendimento realizado com sucesso!";
     
-    
-    
+    public static final String ENCERRA_PROGRAMA = "Programa encerrado, tenha um excelente dia!";
 }

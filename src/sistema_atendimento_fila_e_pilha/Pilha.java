@@ -74,4 +74,10 @@ public class Pilha {
 
         System.out.println(atual.dado.toString() + "\n");
     }
+    
+    public boolean pilhaTemSolicitacao() {
+        if (!this.vazia()) return true;
+        this.imprime();
+        return false;
+    }
 }

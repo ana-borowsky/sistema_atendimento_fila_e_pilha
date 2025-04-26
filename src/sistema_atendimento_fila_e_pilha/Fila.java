@@ -23,7 +23,7 @@ public class Fila {
 	    
 	    public void imprimePrimeiroElemento() {
 	        if (this.vazia()) {
-	        	System.out.println(MensagensUsuario.PILHA_VAZIA);
+	        	System.out.println(MensagensUsuario.FILA_VAZIA);
 	            return;
 	        }
 
@@ -47,7 +47,7 @@ public class Fila {
 	    
 	    public void imprime() {
 	        if(this.vazia()) {
-	        	System.out.println(MensagensUsuario.PILHA_VAZIA);
+	        	System.out.println(MensagensUsuario.FILA_VAZIA);
 	            return;
 	        }
 	        
@@ -57,5 +57,11 @@ public class Fila {
 	            System.out.println(atual.dado.toString());
 	            atual = atual.proximo;
 	        }
+	    }
+	    
+	    public boolean filaTemCliente() {
+	        if (!this.vazia()) return true;
+	        this.imprime();
+	        return false;
 	    }
 }

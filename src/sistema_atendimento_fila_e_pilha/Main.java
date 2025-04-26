@@ -34,12 +34,12 @@ public class Main {
        
         GeraMenu menu = new GeraMenu();
         
-        // adiciona todas as solicitacoes
+        // adiciona todas as solicitacoes ao histórico
     	for ( Dado d: historico) {
         	pilha.insere(d);
         }
     	
-    	// adicona todos os clientes e seus dados
+    	// adicona todos os clientes e seus dados na fila de atendimento
     	for ( Dado d: filaAtendimento) {
     		fila.insere(d);
     	}
